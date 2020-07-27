@@ -339,4 +339,5 @@ celsiusButton.addEventListener("click", showCelsius);
 // fix timezones
 //fix fahrenheit, centigrade buttons
 //do weeks weather
-//
+// make current,local information the default upon loading the page
+//make graphs work
