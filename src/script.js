@@ -28,6 +28,7 @@ let pressureElement = document.querySelector("#current-pressure");
 let temperatureElement = document.querySelector("#current-temperature-figure");
 let weatherSymbolElement = document.querySelector("#current-weather-symbol");
 
+//functions:
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-bar-input");
@@ -42,10 +43,6 @@ function search(event) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInputValueUpperCase}&units=metric`;
     function showTemperature(response) {
       let icon = response.data.weather[0].icon;
-      let iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
-      console.log(icon);
-      console.log(iconUrl);
       let temperature = Math.round(response.data.main.temp);
       let description = response.data.weather[0].description;
       let humidity = response.data.main.humidity;
@@ -57,6 +54,74 @@ function search(event) {
       humidityElement.innerHTML = ` ${humidity}`;
       windElement.innerHTML = ` ${wind}`;
       pressureElement.innerHTML = `${pressure}`;
+
+      console.log(icon);
+      if (
+        icon === "02d" ||
+        icon === "02n" ||
+        icon === "03d" ||
+        icon === "03n" ||
+        icon === "04d" ||
+        icon === "04n"
+      ) {
+        weatherSymbolElement.innerHTML = "☁";
+        document.getElementById("current-weather-text").style.color = "grey";
+        document.getElementById("current-weather-symbol").style.color = "grey";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)";
+      } else if (icon === "10d" || icon === "09d") {
+        weatherSymbolElement.innerHTML = "🌧";
+        document.getElementById("current-weather-text").style.color = "blue";
+        document.getElementById("current-weather-symbol").style.color = "blue";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
+      } else if (icon === "10n" || icon === "09n") {
+        weatherSymbolElement.innerHTML = "🌧";
+        document.getElementById("current-weather-text").style.color = "blue";
+        document.getElementById("current-weather-symbol").style.color = "blue";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%)";
+      } else if (icon === "11d") {
+        weatherSymbolElement.innerHTML = "⛈";
+        document.getElementById("current-weather-text").style.color = "#847B7B";
+        document.getElementById("current-weather-symbol").style.color =
+          "#847B7B";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; background-blend-mode: multiply,multiply";
+      } else if (icon === "13d") {
+        weatherSymbolElement.innerHTML = "❄";
+        document.getElementById("current-weather-text").style.color = "white";
+        document.getElementById("current-weather-symbol").style.color = "white";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)";
+      } else if (icon === "01d") {
+        weatherSymbolElement.innerHTML = "☀";
+        document.getElementById("current-weather-text").style.color = "#ffa726";
+        document.getElementById("current-weather-symbol").style.color =
+          "#ffa726";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(to right, #f83600 0%, #f9d423 100%)";
+      } else if (icon === "01n") {
+        weatherSymbolElement.innerHTML = "🌕";
+        document.getElementById("current-weather-text").style.color = "#ffa726";
+        document.getElementById("current-weather-symbol").style.color =
+          "#ffa726";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(to right, #243949 0%, #161513 100%)";
+      } else if (icon === "50d") {
+        weatherSymbolElement.innerHTML = "🌫";
+        document.getElementById("current-weather-text").style.color = "#CEBB84";
+        document.getElementById("current-weather-symbol").style.color =
+          "#CEBB84";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%)";
+      } else {
+        weatherSymbolElement.innerHTML = "⚙";
+        document.getElementById("current-weather-text").style.color = "green";
+        document.getElementById("current-weather-symbol").style.color = "green";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)";
+      }
     }
 
     axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
@@ -67,7 +132,6 @@ function search(event) {
 
 let searchForm = document.querySelector("#search-bar");
 searchForm.addEventListener("submit", search);
-
 //the following code changes the data to that of the current location of the device
 function currentsearch(eventCurrent) {
   eventCurrent.preventDefault();
@@ -82,6 +146,19 @@ function currentsearch(eventCurrent) {
       let temperatureCurrent = Math.round(response.data.main.temp);
       temperatureElement.innerHTML = `${temperatureCurrent}`;
       let descriptionCurrent = response.data.weather[0].description;
+      if (descriptionCurrent === "light rain") {
+        weatherSymbolElement.innerHTML = "🌧";
+        document.getElementById("current-weather-text").style.color = "blue";
+        document.getElementById("current-weather-symbol").style.color = "blue";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
+      } else {
+        weatherSymbolElement.innerHTML = "⚙";
+        document.getElementById("current-weather-text").style.color = "green";
+        document.getElementById("current-weather-symbol").style.color = "green";
+        document.getElementById("body").style.backgroundImage =
+          "linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)";
+      }
       let humidityCurrent = response.data.main.humidity;
       let windCurrent = response.data.wind.speed;
       let pressureCurrent = response.data.main.pressure;
