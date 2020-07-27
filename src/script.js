@@ -58,44 +58,51 @@ function search(event) {
       console.log(icon);
       if (icon === "03d" || icon === "04d") {
         weatherSymbolElement.innerHTML = "☁";
-        document.getElementById("current-weather-text").style.color = "grey";
-        document.getElementById("current-weather-symbol").style.color = "grey";
+        document.getElementById("current-weather-text").style.color = "#fbc2eb";
+        document.getElementById("current-weather-symbol").style.color =
+          "#fbc2eb";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)";
       } else if (icon === "04n") {
         weatherSymbolElement.innerHTML = "☁";
-        document.getElementById("current-weather-text").style.color = "grey";
-        document.getElementById("current-weather-symbol").style.color = "grey";
+        document.getElementById("current-weather-text").style.color = "#9bc5c3";
+        document.getElementById("current-weather-symbol").style.color =
+          "#9bc5c3";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(-20deg, #616161 0%, #9bc5c3 100%)";
       } else if (icon === "03n") {
         weatherSymbolElement.innerHTML = "☁";
-        document.getElementById("current-weather-text").style.color = "grey";
-        document.getElementById("current-weather-symbol").style.color = "grey";
+        document.getElementById("current-weather-text").style.color = "#bac8e0";
+        document.getElementById("current-weather-symbol").style.color =
+          "#bac8e0";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to top, #6a85b6 0%, #bac8e0 100%)";
       } else if (icon === "02n") {
         weatherSymbolElement.innerHTML = "🌥";
-        document.getElementById("current-weather-text").style.color = "grey";
-        document.getElementById("current-weather-symbol").style.color = "grey";
+        document.getElementById("current-weather-text").style.color = "#fbc2eb";
+        document.getElementById("current-weather-symbol").style.color =
+          "#fbc2eb";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)";
       } else if (icon === "02d") {
         weatherSymbolElement.innerHTML = "🌥";
-        document.getElementById("current-weather-text").style.color = "grey";
-        document.getElementById("current-weather-symbol").style.color = "grey";
+        document.getElementById("current-weather-text").style.color = "#fed6e3";
+        document.getElementById("current-weather-symbol").style.color =
+          "#fed6e3";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)";
       } else if (icon === "10d" || icon === "09d") {
         weatherSymbolElement.innerHTML = "🌧";
-        document.getElementById("current-weather-text").style.color = "blue";
-        document.getElementById("current-weather-symbol").style.color = "blue";
+        document.getElementById("current-weather-text").style.color = "#ace0f9";
+        document.getElementById("current-weather-symbol").style.color =
+          "#ace0f9";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
       } else if (icon === "10n" || icon === "09n") {
         weatherSymbolElement.innerHTML = "🌧";
-        document.getElementById("current-weather-text").style.color = "blue";
-        document.getElementById("current-weather-symbol").style.color = "blue";
+        document.getElementById("current-weather-text").style.color = "#495aff";
+        document.getElementById("current-weather-symbol").style.color =
+          "#495aff";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to right, #0acffe 0%, #495aff 100%)";
       } else if (icon === "11d") {
@@ -107,14 +114,16 @@ function search(event) {
           "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; background-blend-mode: multiply,multiply";
       } else if (icon === "13d") {
         weatherSymbolElement.innerHTML = "❄";
-        document.getElementById("current-weather-text").style.color = "white";
-        document.getElementById("current-weather-symbol").style.color = "white";
+        document.getElementById("current-weather-text").style.color = "#eef1f5";
+        document.getElementById("current-weather-symbol").style.color =
+          "#eef1f5";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)";
       } else if (icon === "13n") {
         weatherSymbolElement.innerHTML = "❄";
-        document.getElementById("current-weather-text").style.color = "white";
-        document.getElementById("current-weather-symbol").style.color = "white";
+        document.getElementById("current-weather-text").style.color = "#bcbcbc";
+        document.getElementById("current-weather-symbol").style.color =
+          "#bcbcbc";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%)";
       } else if (icon === "01d") {
