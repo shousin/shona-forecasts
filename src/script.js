@@ -334,6 +334,7 @@ celsiusButton.addEventListener("click", showCelsius);
 */
 
 //still need to:
+//change current btn stuff to local to avoid confusion
 //make colour coordination work for current
 // fix precipitation (currently showing pressure)
 // fix timezones
