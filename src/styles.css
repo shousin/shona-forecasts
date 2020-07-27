@@ -4,8 +4,13 @@ h1 {
   padding: 5px 0;
   margin: 5px 0;
 }
-
+body {
+  background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
 .container {
+  background-color: white;
+  margin: 10px auto;
+  padding: 10px 20px;
   width: 500px;
   font-family: "Open Sans", sans-serif;
   opacity: 75%;
