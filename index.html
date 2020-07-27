@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/c1e199010e.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <img src="images/LOGO.jpg" alt="shonaforecasts" id="logo" />
+
+        <form class="search-bar" id="search-bar">
+            <div class="row">
+                <div class="col-9">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Enter a city..." aria-label="Search"
+                        id="search-bar-input" />
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="search-btn">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+
+
+        <div class="row current-city">
+            <div class="col-9">
+                <h1>
+                    London
+                </h1>
+            </div>
+            <div class="col-3">
+                <form id="current-city-btn">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        Current
+                    </button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="row all-current-info">
+
+            <div class="col-6 all-current-info-left">
+                <div id="current-day-and-time">
+                    Tuesday 19:00
+                </div>
+                <div id="current-weather-text">
+                    Sunny
+                </div>
+                <div>
+                    Humidity:<span id="current-humidity"> 80</span>%
+                </div>
+                <div>
+                    Wind: <span id="current-wind">8</span>m/s
+                </div>
+
+                <div>
+                    Precipitation: <span id="current-pressure">
+                        9</span>mm
+                </div>
+            </div>
+            <div class="col-2"></div>
+
+            <div class="col-4 center">
+                <large id="current-weather-symbol"> <i class="fas fa-sun"></i>
+                </large>
+                <div id="current-temperature">
+                    <span id="current-temperature-figure">18 </span>
+                    <a id="celsius-btn">°C</a>
+                    <a id="fahrenheit-btn">°F</a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row week">
+            <button class="col-2 center day day-2">
+                Weds
+                <div class="symbol symbol-2">🌧</div>
+                <strong> 18°</strong> 14°
+            </button>
+            <button class="col-2 center day day-3">
+                Thurs
+                <div class="symbol symbol-3">🌧</div>
+                <strong> 18°</strong> 14°
+            </button>
+            <button class="col-2 center day day-4">
+                Fri
+                <div class="symbol symbol-4">🌥</div>
+                <strong> 18°</strong> 14°
+            </button>
+            <button class="col-2 center day day-5">
+                Sat
+                <div class="symbol symbol-5">🌧</div>
+                <strong> 18°</strong> 14°
+            </button>
+            <button class="col-2 center day day-6">
+                Sun
+                <div class="symbol symbol-6">⛈</div>
+                <strong> 18°</strong> 14°
+            </button>
+            <button class="col-2 center day day-7">
+                Mon
+                <div class="symbol symbol-7">⛄</div>
+                <strong> 18°</strong> 14°
+            </button>
+        </div>
+
+        <div class="row">
+            <div class="col-4 center graph-btns">
+                <button type="button" class="btn btn-outline-secondary" id="temperature-btn">
+                    Temperature
+                </button>
+            </div>
+            <div class="col-4 center graph-btns">
+                <button type="button" class="btn btn-outline-secondary" id="precipitation-btn">
+                    Precipitation
+                </button>
+            </div>
+            <div class="col-4 center graph-btns">
+                <button type="button" class="btn btn-outline-secondary" id="wind-btn">Wind</button>
+            </div>
+        </div>
+
+        <div class="row graph">
+            <div class="col-1"></div>
+            <div class="col-11 times">
+                20:00 |23:00 |2:00 |5:00 |8:00 |11:00 |14:00 |17:00
+            </div>
+
+            <div class="col-1 side-numbers center">
+                25 <br />
+                20 <br />
+                15 <br />
+                10 <br />
+                5 <br />
+                0 <br />-5 <br />-10<br />-20 <br />-25
+            </div>
+            <div class="col-11">
+                <img src="images/download.png" alt="temperature forecast" id="graph-img" />
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <script src=src/script.js></script>
+</body>
+
+</html>
