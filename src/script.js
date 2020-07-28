@@ -18,7 +18,7 @@ let currentDayAndTime = document.querySelector("#current-day-and-time");
 currentDayAndTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 //The following code reads the city from the search bar input and posts it on the page
-//it also changes most of the data for today to match that city (except the current day and time in that)
+//it also changes most of the data and colours for today to match that city
 let city = document.querySelector("h1");
 let apiKey = "cc6881d929e8ea4776abf51199d73643";
 let humidityElement = document.querySelector("#current-humidity");
@@ -28,13 +28,13 @@ let pressureElement = document.querySelector("#current-pressure");
 let temperatureElement = document.querySelector("#current-temperature-figure");
 let weatherSymbolElement = document.querySelector("#current-weather-symbol");
 let searchForm = document.querySelector("#search-bar");
-let currentForm = document.querySelector("#current-city-btn");
+let localForm = document.querySelector("#local-city-btn");
 let celsiusButton = document.querySelector("#celsius-btn");
 let fahrenheitButton = document.querySelector("#fahrenheit-btn");
 celsiusButton.addEventListener("click", showCelsius);
 fahrenheitButton.addEventListener("click", showFahrenheit);
 searchForm.addEventListener("submit", search);
-currentForm.addEventListener("submit", currentsearch);
+localForm.addEventListener("submit", localsearch);
 
 //the following code does not work but eventually will convert fahrenheit to celsius and vice versa:
 
@@ -189,27 +189,27 @@ function search(event) {
 }
 
 //the following code changes the data to that of the current location of the device
-function currentsearch(eventCurrent) {
-  eventCurrent.preventDefault();
+function localsearch(eventLocal) {
+  eventLocal.preventDefault();
   function findPosition(position) {
     let latitude = `${position.coords.latitude}`;
     let longitude = `${position.coords.longitude}`;
-    let apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
-    function showTemperatureCurrent(response) {
+    let apiUrlLocal = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+    function showTemperatureLocal(response) {
       let icon = response.data.weather[0].icon;
       console.log(icon);
-      let temperatureCurrent = Math.round(response.data.main.temp);
-      temperatureElement.innerHTML = `${temperatureCurrent}`;
-      let descriptionCurrent = response.data.weather[0].description;
-      let humidityCurrent = response.data.main.humidity;
-      let windCurrent = response.data.wind.speed;
-      let pressureCurrent = response.data.main.pressure;
-      let cityCurrent = response.data.name;
-      city.innerHTML = `${cityCurrent}`;
-      descriptionElement.innerHTML = `${descriptionCurrent}`;
-      humidityElement.innerHTML = ` ${humidityCurrent}`;
-      windElement.innerHTML = ` ${windCurrent}`;
-      pressureElement.innerHTML = `${pressureCurrent}`;
+      let temperatureLocal = Math.round(response.data.main.temp);
+      temperatureElement.innerHTML = `${temperatureLocal}`;
+      let descriptionLocal = response.data.weather[0].description;
+      let humidityLocal = response.data.main.humidity;
+      let windLocal = response.data.wind.speed;
+      let pressureLocal = response.data.main.pressure;
+      let cityLocal = response.data.name;
+      city.innerHTML = `${cityLocal}`;
+      descriptionElement.innerHTML = `${descriptionLocal}`;
+      humidityElement.innerHTML = ` ${humidityLocal}`;
+      windElement.innerHTML = ` ${windLocal}`;
+      pressureElement.innerHTML = `${pressureLocal}`;
       if (icon === "03d" || icon === "04d") {
         weatherSymbolElement.innerHTML = "☁";
         document.getElementById("current-weather-text").style.color = "#fbc2eb";
@@ -316,7 +316,7 @@ function currentsearch(eventCurrent) {
           "linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)";
       }
     }
-    axios.get(`${apiUrlCurrent}&units=metric`).then(showTemperatureCurrent);
+    axios.get(`${apiUrlLocal}&units=metric`).then(showTemperatureLocal);
   }
   navigator.geolocation.getCurrentPosition(findPosition);
 }
