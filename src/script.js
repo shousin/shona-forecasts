@@ -124,7 +124,7 @@ function search(event) {
         document.getElementById("current-weather-symbol").style.color =
           "#fbc2eb";
         document.getElementById("body").style.backgroundImage =
-          "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)";
+          "linear-gradient(to top, #a18cd1 0%, #4403BC 100%)";
       } else if (icon === "02d") {
         weatherSymbolElement.innerHTML = "🌥";
         document.getElementById("current-weather-text").style.color = "#fed6e3";
