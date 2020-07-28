@@ -110,7 +110,7 @@ function search(event) {
         document.getElementById("current-weather-symbol").style.color =
           "#9bc5c3";
         document.getElementById("body").style.backgroundImage =
-          "linear-gradient(-20deg, #616161 0%, #9bc5c3 100%)";
+          "linear-gradient(-20deg,  #0f0f0f 0%, #33354d 100%)";
       } else if (icon === "03n") {
         weatherSymbolElement.innerHTML = "☁";
         document.getElementById("current-weather-text").style.color = "#bac8e0";
