@@ -29,16 +29,26 @@ let temperatureElement = document.querySelector("#current-temperature-figure");
 let weatherSymbolElement = document.querySelector("#current-weather-symbol");
 let searchForm = document.querySelector("#search-bar");
 let currentForm = document.querySelector("#current-city-btn");
-let currentTemperatureFigure = document.querySelector(
-  "#current-temperature-figure"
-);
 let celsiusButton = document.querySelector("#celsius-btn");
 let fahrenheitButton = document.querySelector("#fahrenheit-btn");
 celsiusButton.addEventListener("click", showCelsius);
 fahrenheitButton.addEventListener("click", showFahrenheit);
 searchForm.addEventListener("submit", search);
 currentForm.addEventListener("submit", currentsearch);
-//functions:
+
+//the following code does not work but eventually will convert fahrenheit to celsius and vice versa:
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  temperatureElement.innerHTML = `${temperatureElement}`;
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  temperatureElement.innerHTML = "18";
+  //this is where I need to change the code to read current temperature not 18
+}
+//more functions:
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-bar-input");
@@ -309,18 +319,6 @@ function currentsearch(eventCurrent) {
     axios.get(`${apiUrlCurrent}&units=metric`).then(showTemperatureCurrent);
   }
   navigator.geolocation.getCurrentPosition(findPosition);
-}
-//the following code does not work but eventually will convert fahrenheit to celsius and vice versa:
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  currentTemperatureFigure.innerHTML = `65`;
-}
-
-function showCelsius(event) {
-  event.preventDefault();
-  currentTemperatureFigure.innerHTML = "18";
-  //this is where I need to change the code to read current temperature not 18
 }
 
 //still need to:
