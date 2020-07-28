@@ -38,28 +38,37 @@ searchForm.addEventListener("submit", search);
 localForm.addEventListener("submit", localsearch);
 
 //the following code does not work but eventually will convert fahrenheit to celsius and vice versa:
-
+let isFahrenheitFunctionCalled = false;
 function showFahrenheit(event) {
   event.preventDefault();
-  let celsiusFigure = Number(temperatureElement.innerHTML);
-  let fahrenheitFigure = (celsiusFigure * 9) / 5 + 32;
-  console.log(fahrenheitFigure);
-  temperatureElement.innerHTML = Math.round(fahrenheitFigure);
-  document.getElementById("fahrenheit-btn").style.opacity = "100%";
-  document.getElementById("celsius-btn").style.opacity = "50%";
+  if (isFahrenheitFunctionCalled === false) {
+    let celsiusFigure = Number(temperatureElement.innerHTML);
+    let fahrenheitFigure = (celsiusFigure * 9) / 5 + 32;
+    console.log(fahrenheitFigure);
+    temperatureElement.innerHTML = Math.round(fahrenheitFigure);
+    document.getElementById("fahrenheit-btn").style.opacity = "100%";
+    document.getElementById("celsius-btn").style.opacity = "50%";
+    isFahrenheitFunctionCalled = true;
+  }
 }
 
 function showCelsius(event) {
   event.preventDefault();
-  let fahrenheitFigure = Number(temperatureElement.innerHTML);
-  let celsiusFigure = (fahrenheitFigure - 32) * (5 / 9);
-  console.log(fahrenheitFigure);
-  temperatureElement.innerHTML = Math.round(celsiusFigure);
-  document.getElementById("celsius-btn").style.opacity = "100%";
-  document.getElementById("fahrenheit-btn").style.opacity = "50%";
-
-  //this is where I need to change the code to read current temperature not 18
+  if (isFahrenheitFunctionCalled === true) {
+    let fahrenheitFigure = Number(temperatureElement.innerHTML);
+    let celsiusFigure = (fahrenheitFigure - 32) * (5 / 9);
+    console.log(fahrenheitFigure);
+    temperatureElement.innerHTML = Math.round(celsiusFigure);
+    document.getElementById("celsius-btn").style.opacity = "100%";
+    document.getElementById("fahrenheit-btn").style.opacity = "50%";
+    isFahrenheitFunctionCalled = false;
+  } else {
+    isFahrenheitFunctionCalled = false;
+  }
 }
+
+//there is a bug that means that if you click local and then search the temperature is wrong, and vice versa
+
 //more functions:
 function search(event) {
   event.preventDefault();
