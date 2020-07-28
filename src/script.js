@@ -349,11 +349,8 @@ function localsearch(eventLocal) {
 }
 
 //still need to:
-//change current btn stuff to local to avoid confusion
-//make colour coordination work for current
 // fix precipitation (currently showing pressure)
 // fix timezones
-//fix fahrenheit, centigrade buttons
 //do weeks weather
 // make current,local information the default upon loading the page
 //make graphs work
