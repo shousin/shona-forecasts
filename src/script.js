@@ -31,6 +31,7 @@ let searchForm = document.querySelector("#search-bar");
 let localForm = document.querySelector("#local-city-btn");
 let celsiusButton = document.querySelector("#celsius-btn");
 let fahrenheitButton = document.querySelector("#fahrenheit-btn");
+
 celsiusButton.addEventListener("click", showCelsius);
 fahrenheitButton.addEventListener("click", showFahrenheit);
 searchForm.addEventListener("submit", search);
@@ -40,14 +41,20 @@ localForm.addEventListener("submit", localsearch);
 
 function showFahrenheit(event) {
   event.preventDefault();
-  temperatureElement.innerHTML = `nF`;
+  let celsiusFigure = Number(temperatureElement.innerHTML);
+  let fahrenheitFigure = (celsiusFigure * 9) / 5 + 32;
+  console.log(fahrenheitFigure);
+  temperatureElement.innerHTML = Math.round(fahrenheitFigure);
   document.getElementById("fahrenheit-btn").style.opacity = "100%";
   document.getElementById("celsius-btn").style.opacity = "50%";
 }
 
 function showCelsius(event) {
   event.preventDefault();
-  temperatureElement.innerHTML = "Nf";
+  let fahrenheitFigure = Number(temperatureElement.innerHTML);
+  let celsiusFigure = (fahrenheitFigure - 32) * (5 / 9);
+  console.log(fahrenheitFigure);
+  temperatureElement.innerHTML = Math.round(celsiusFigure);
   document.getElementById("celsius-btn").style.opacity = "100%";
   document.getElementById("fahrenheit-btn").style.opacity = "50%";
 
