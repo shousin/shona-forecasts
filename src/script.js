@@ -27,7 +27,17 @@ let windElement = document.querySelector("#current-wind");
 let pressureElement = document.querySelector("#current-pressure");
 let temperatureElement = document.querySelector("#current-temperature-figure");
 let weatherSymbolElement = document.querySelector("#current-weather-symbol");
-
+let searchForm = document.querySelector("#search-bar");
+let currentForm = document.querySelector("#current-city-btn");
+let currentTemperatureFigure = document.querySelector(
+  "#current-temperature-figure"
+);
+let celsiusButton = document.querySelector("#celsius-btn");
+let fahrenheitButton = document.querySelector("#fahrenheit-btn");
+celsiusButton.addEventListener("click", showCelsius);
+fahrenheitButton.addEventListener("click", showFahrenheit);
+searchForm.addEventListener("submit", search);
+currentForm.addEventListener("submit", currentsearch);
 //functions:
 function search(event) {
   event.preventDefault();
@@ -162,15 +172,12 @@ function search(event) {
           "linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)";
       }
     }
-
     axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
   } else {
     city.innerHTML = `Please type a city...`;
   }
 }
 
-let searchForm = document.querySelector("#search-bar");
-searchForm.addEventListener("submit", search);
 //the following code changes the data to that of the current location of the device
 function currentsearch(eventCurrent) {
   eventCurrent.preventDefault();
@@ -178,7 +185,6 @@ function currentsearch(eventCurrent) {
     let latitude = `${position.coords.latitude}`;
     let longitude = `${position.coords.longitude}`;
     let apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
-
     function showTemperatureCurrent(response) {
       let icon = response.data.weather[0].icon;
       console.log(icon);
@@ -302,36 +308,20 @@ function currentsearch(eventCurrent) {
     }
     axios.get(`${apiUrlCurrent}&units=metric`).then(showTemperatureCurrent);
   }
-
   navigator.geolocation.getCurrentPosition(findPosition);
 }
-
-let currentForm = document.querySelector("#current-city-btn");
-currentForm.addEventListener("submit", currentsearch);
-
 //the following code does not work but eventually will convert fahrenheit to celsius and vice versa:
-let currentTemperatureFigure = document.querySelector(
-  "#current-temperature-figure"
-);
+
 function showFahrenheit(event) {
   event.preventDefault();
   currentTemperatureFigure.innerHTML = `65`;
 }
 
-let fahrenheitButton = document.querySelector("#fahrenheit-btn");
-fahrenheitButton.addEventListener("click", showFahrenheit);
-
-/*
 function showCelsius(event) {
   event.preventDefault();
   currentTemperatureFigure.innerHTML = "18";
   //this is where I need to change the code to read current temperature not 18
 }
-
-
-let celsiusButton = document.querySelector("#celsius-btn");
-celsiusButton.addEventListener("click", showCelsius);
-*/
 
 //still need to:
 //change current btn stuff to local to avoid confusion
