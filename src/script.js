@@ -254,7 +254,7 @@ function localsearch(eventLocal) {
         document.getElementById("current-weather-symbol").style.color =
           "#bac8e0";
         document.getElementById("body").style.backgroundImage =
-          "linear-gradient(to top, #6a85b6 0%, #bac8e0 100%)";
+          "linear-gradient(to top, #6a85b6 0%, #23272e 100%)";
       } else if (icon === "02n") {
         weatherSymbolElement.innerHTML = "🌥";
         document.getElementById("current-weather-text").style.color = "#fbc2eb";
