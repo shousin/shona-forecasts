@@ -40,12 +40,17 @@ localForm.addEventListener("submit", localsearch);
 
 function showFahrenheit(event) {
   event.preventDefault();
-  temperatureElement.innerHTML = `${temperatureElement}`;
+  temperatureElement.innerHTML = `nF`;
+  document.getElementById("fahrenheit-btn").style.opacity = "100%";
+  document.getElementById("celsius-btn").style.opacity = "50%";
 }
 
 function showCelsius(event) {
   event.preventDefault();
-  temperatureElement.innerHTML = "18";
+  temperatureElement.innerHTML = "Nf";
+  document.getElementById("celsius-btn").style.opacity = "100%";
+  document.getElementById("fahrenheit-btn").style.opacity = "50%";
+
   //this is where I need to change the code to read current temperature not 18
 }
 //more functions:
