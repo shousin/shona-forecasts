@@ -87,7 +87,7 @@ function search(event) {
       let temperature = Math.round(response.data.main.temp);
       let description = response.data.weather[0].description;
       let humidity = response.data.main.humidity;
-      let wind = response.data.wind.speed;
+      let wind = Math.round(response.data.wind.speed * 2.237);
       let pressure = response.data.main.pressure;
 
       temperatureElement.innerHTML = `${temperature}`;
@@ -226,7 +226,7 @@ function localsearch(eventLocal) {
       temperatureElement.innerHTML = `${temperatureLocal}`;
       let descriptionLocal = response.data.weather[0].description;
       let humidityLocal = response.data.main.humidity;
-      let windLocal = response.data.wind.speed;
+      let windLocal = Math.round(response.data.wind.speed * 2.237);
       let pressureLocal = response.data.main.pressure;
       let cityLocal = response.data.name;
       city.innerHTML = `${cityLocal}`;
