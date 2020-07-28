@@ -207,6 +207,9 @@ function search(event) {
   } else {
     city.innerHTML = `Please type a city...`;
   }
+  document.getElementById("celsius-btn").style.opacity = "100%";
+  document.getElementById("fahrenheit-btn").style.opacity = "50%";
+  isFahrenheitFunctionCalled = false;
 }
 
 //the following code changes the data to that of the current location of the device
@@ -339,7 +342,10 @@ function localsearch(eventLocal) {
     }
     axios.get(`${apiUrlLocal}&units=metric`).then(showTemperatureLocal);
   }
+  document.getElementById("celsius-btn").style.opacity = "100%";
+  document.getElementById("fahrenheit-btn").style.opacity = "50%";
   navigator.geolocation.getCurrentPosition(findPosition);
+  isFahrenheitFunctionCalled = false;
 }
 
 //still need to:
