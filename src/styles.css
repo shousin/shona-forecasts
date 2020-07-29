@@ -51,8 +51,14 @@ body {
 .times {
   font-size: 15px;
 }
+.side-number-col {
+  text-align: left;
+}
 .side-numbers {
   font-size: 8px;
+
+  margin: 0;
+  list-style: none;
 }
 .graph {
   padding: 10px 0;
