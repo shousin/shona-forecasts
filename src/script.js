@@ -17,8 +17,6 @@ let minutes = (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
 let currentDayAndTime = document.querySelector("#current-day-and-time");
 currentDayAndTime.innerHTML = `${day} ${hour}:${minutes}`;
 
-//The following code reads the city from the search bar input and posts it on the page
-//it also changes most of the data and colours for today to match that city
 let city = document.querySelector("h1");
 let apiKey = "cc6881d929e8ea4776abf51199d73643";
 let humidityElement = document.querySelector("#current-humidity");
@@ -38,7 +36,7 @@ fahrenheitButton.addEventListener("click", showFahrenheit);
 searchForm.addEventListener("submit", search);
 localForm.addEventListener("submit", localsearch);
 
-//the following code does not work but eventually will convert fahrenheit to celsius and vice versa:
+//the following code converts fahrenheit to celsius and vice versa:
 
 function showFahrenheit(event) {
   event.preventDefault();
@@ -70,6 +68,8 @@ function showCelsius(event) {
 
 //there is a bug that means that if you click local and then search the temperature is wrong, and vice versa
 
+//The following code reads the city from the search bar input and posts it on the page
+//it also changes most of the data and colours for today to match that city
 //more functions:
 function search(event) {
   event.preventDefault();
