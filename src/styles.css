@@ -62,13 +62,6 @@ body {
   box-shadow: 5px 10px 8px #888888;
   background-color: white;
 }
-
-#logo {
-  display: block;
-  margin: 10px auto;
-  width: 100%;
-}
-
 .local-city-btn {
   margin: 0 10px;
   padding: 6px 21px;
@@ -76,7 +69,11 @@ body {
 #local-city-btn {
   padding: 0 31px 0;
 }
-
+#logo {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+}
 #search-btn {
   color: #167bca;
   outline: #167bca;
@@ -95,6 +92,10 @@ body {
   font-size: 75px;
   margin: 0;
   text-shadow: 2px 2px grey;
+}
+.symbol-and-degrees {
+  text-align: right;
+  padding: 10px 30px;
 }
 #current-temperature-figure {
   font-size: xx-large;

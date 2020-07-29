@@ -80,8 +80,6 @@ function search(event) {
       return letter.toUpperCase();
     });
   if (searchInputValueUpperCase) {
-    city.innerHTML = searchInputValueUpperCase;
-
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInputValueUpperCase}&units=metric`;
     function showTemperature(response) {
       let icon = response.data.weather[0].icon;
@@ -202,6 +200,9 @@ function search(event) {
         document.getElementById("current-weather-symbol").style.color = "green";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)";
+      }
+      if (response.data.weather[0].description) {
+        city.innerHTML = searchInputValueUpperCase;
       }
     }
     axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
@@ -357,7 +358,6 @@ function localsearch(eventLocal) {
 //make graphs work
 //make weather descriptions capitalised
 //work out how to merge current and search engine code
-//make fahrenheit not go onto a new line for temps over 100
 
 //notes from sheCodes:
 //vanilla project html -
