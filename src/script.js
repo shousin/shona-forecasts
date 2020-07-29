@@ -117,14 +117,14 @@ function search(event) {
         document.getElementById("current-weather-symbol").style.color =
           "#bac8e0";
         document.getElementById("body").style.backgroundImage =
-          "linear-gradient(to top, #6a85b6 0%, #bac8e0 100%)";
+          "linear-gradient(to top, #6a85b6 0%, #23272e 100%)";
       } else if (icon === "02n") {
         weatherSymbolElement.innerHTML = "🌥";
         document.getElementById("current-weather-text").style.color = "#4403BC";
         document.getElementById("current-weather-symbol").style.color =
           "#4403BC";
         document.getElementById("body").style.backgroundImage =
-          "linear-gradient(to top, #a18cd1 0%, #4403BC 100%)";
+          "linear-gradient(to top, #a18cd1 0%, #2f2435 100%)";
       } else if (icon === "02d") {
         weatherSymbolElement.innerHTML = "🌥";
         document.getElementById("current-weather-text").style.color = "#fed6e3";
@@ -247,7 +247,7 @@ function localsearch(eventLocal) {
         document.getElementById("current-weather-symbol").style.color =
           "#9bc5c3";
         document.getElementById("body").style.backgroundImage =
-          "linear-gradient(-20deg, #616161 0%, #9bc5c3 100%)";
+          "linear-gradient(-20deg,  #0f0f0f 0%, #33354d 100%)";
       } else if (icon === "03n") {
         weatherSymbolElement.innerHTML = "☁";
         document.getElementById("current-weather-text").style.color = "#bac8e0";
@@ -289,7 +289,7 @@ function localsearch(eventLocal) {
         document.getElementById("current-weather-symbol").style.color =
           "#847B7B";
         document.getElementById("body").style.backgroundImage =
-          "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; background-blend-mode: multiply,multiply";
+          "linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%)";
       } else if (icon === "13d") {
         weatherSymbolElement.innerHTML = "❄";
         document.getElementById("current-weather-text").style.color = "#eef1f5";
@@ -349,6 +349,7 @@ function localsearch(eventLocal) {
 }
 
 //still need to:
+//match up colours of current search with local search
 // fix precipitation (currently showing pressure)
 // fix timezones
 //do weeks weather
