@@ -96,8 +96,12 @@ body {
   margin: 0;
   text-shadow: 2px 2px grey;
 }
-#current-temperature {
+#current-temperature-figure {
   font-size: xx-large;
+}
+#celsius-and-fahrenheit {
+  position: relative;
+  bottom: 10px;
 }
 #celsius-btn:hover {
   opacity: 75%;

@@ -356,6 +356,8 @@ function localsearch(eventLocal) {
 // make current,local information the default upon loading the page
 //make graphs work
 //make weather descriptions capitalised
+//work out how to merge current and search engine code
+//make fahrenheit not go onto a new line for temps over 100
 
 //notes from sheCodes:
 //vanilla project html -
