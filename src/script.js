@@ -31,6 +31,7 @@ let searchForm = document.querySelector("#search-bar");
 let localForm = document.querySelector("#local-city-btn");
 let celsiusButton = document.querySelector("#celsius-btn");
 let fahrenheitButton = document.querySelector("#fahrenheit-btn");
+let isFahrenheitFunctionCalled = false;
 
 celsiusButton.addEventListener("click", showCelsius);
 fahrenheitButton.addEventListener("click", showFahrenheit);
@@ -38,7 +39,7 @@ searchForm.addEventListener("submit", search);
 localForm.addEventListener("submit", localsearch);
 
 //the following code does not work but eventually will convert fahrenheit to celsius and vice versa:
-let isFahrenheitFunctionCalled = false;
+
 function showFahrenheit(event) {
   event.preventDefault();
   if (isFahrenheitFunctionCalled === false) {
@@ -349,9 +350,18 @@ function localsearch(eventLocal) {
 }
 
 //still need to:
-//match up colours of current search with local search
 // fix precipitation (currently showing pressure)
 // fix timezones
-//do weeks weather
+//do week's weather
 // make current,local information the default upon loading the page
 //make graphs work
+//make weather descriptions capitalised
+
+//notes from sheCodes:
+//vanilla project html -
+//1. make lists instead of divs (remember to put list-style: none; and margin:0;)
+//2. Make signature <small> and rename github open-source code
+//3. Add line-heights to things (line-height: 1; is the same as line-height: 64px; )
+//4. replace container with div.weather-app-wrapper and put container outside all code
+//5. make centigrade and fahrenheit small and up high using relative positioning (eg. top:-34px;)
+//6. replace symbols with symbols from symbol website
