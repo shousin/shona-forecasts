@@ -358,6 +358,7 @@ function localsearch(eventLocal) {
 //make graphs work
 //make weather descriptions capitalised
 //work out how to merge current and search engine code
+//move please enter a city so it doesnt replace city
 
 //notes from sheCodes:
 //vanilla project html -
