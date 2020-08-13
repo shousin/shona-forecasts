@@ -66,11 +66,15 @@ function showCelsius(event) {
   }
 }
 
-//there is a bug that means that if you click local and then search the temperature is wrong, and vice versa
-
 //The following code reads the city from the search bar input and posts it on the page
 //it also changes most of the data and colours for today to match that city
 //more functions:
+
+//this function is linked to the display forecast function call back within the search function
+function displayForecast(response) {
+  console.log(response.data);
+}
+
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-bar-input");
@@ -95,7 +99,6 @@ function search(event) {
       windElement.innerHTML = ` ${wind}`;
       pressureElement.innerHTML = `${pressure}`;
 
-      console.log(icon);
       if (icon === "03d" || icon === "04d") {
         weatherSymbolElement.innerHTML = "☁";
         document.getElementById("current-weather-text").style.color = "#fbc2eb";
@@ -206,6 +209,10 @@ function search(event) {
       }
     }
     axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
+
+    //the following code is to forecast weather for today
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}`;
+    axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
   } else {
     city.innerHTML = `Please type a city...`;
   }
