@@ -210,8 +210,8 @@ function search(event) {
     axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 
     //the following code is to forecast weather for today
-    //currently an error reading city as string
-    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}`;
+
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city.innerHTML}`;
     axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
   } else {
     city.innerHTML = `Please type a city...`;
