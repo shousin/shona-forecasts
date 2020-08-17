@@ -277,8 +277,6 @@ fahrenheitButton.addEventListener("click", showFahrenheit);
 searchForm.addEventListener("submit", search);
 localForm.addEventListener("submit", localsearch);
 
-// the following code is a list of personalised icons because the openweather ones won't work
-
 //
 
 //still need to:
