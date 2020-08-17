@@ -36,14 +36,37 @@ function displayForecast(response) {
   forecastElement.innerHTML = null;
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+    icon = forecast.weather[0].icon;
+    let forecastSymbol = "symbol";
+    if (icon === "03d" || icon === "04d" || icon === "04n" || icon === "03n") {
+      forecastSymbol = "☁";
+    } else if (icon === "02n" || icon === "02d") {
+      forecastSymbol = "🌥";
+    } else if (
+      icon === "10d" ||
+      icon === "09d" ||
+      icon === "10n" ||
+      icon === "09n"
+    ) {
+      forecastSymbol = "🌧";
+    } else if (icon === "11d" || icon === "11n") {
+      forecastSymbol = "⛈";
+    } else if (icon === "13d" || icon === "13n") {
+      forecastSymbol = "❄";
+    } else if (icon === "01d") {
+      forecastSymbol = "☀";
+    } else if (icon === "01n") {
+      forecastSymbol = "🌕";
+    }
+  } else if (icon === "50d" || icon === "50n" ) {
+    forecastSymbol = "🌫";
+  } else { forecastSymbol = "⚙" }
     //the += below means it goes through the "for loop" defined above, 1 by 1 and it posts it next to the previous innerHTMl
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3 class="center">${formatHours(forecast.dt * 1000)}</h3>
       <img
-      src="https://openweather.org/img/wn/${
-        forecast.weather[0].icon
-      }@2x.png" alt=""
+      src="https://openweather.org/img/wn/${forecastSymbol}@2x.png" alt=""
       
       />
       <div class="center"> 
@@ -251,7 +274,7 @@ fahrenheitButton.addEventListener("click", showFahrenheit);
 searchForm.addEventListener("submit", search);
 localForm.addEventListener("submit", localsearch);
 
-//
+// the following code is a list of personalised icons because the openweather ones won't work
 
 //
 
@@ -262,7 +285,6 @@ localForm.addEventListener("submit", localsearch);
 
 //notes from sheCodes:
 //vanilla project html -
-//1. make lists instead of divs (remember to put list-style: none; and margin:0;)
 //3. Add line-heights to things (line-height: 1; is the same as line-height: 64px; )
 //4. replace container with div.weather-app-wrapper and put container outside all code
 //6. replace symbols with symbols from symbol website - tried and doesnt work
