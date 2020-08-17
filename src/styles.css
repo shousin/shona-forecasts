@@ -37,41 +37,17 @@ body {
   color: #167bca;
   height: 30px;
 }
-.week {
-  margin: 20px 0;
-}
-.day {
-  border: solid 1px #ff3366;
-  border-radius: 10px;
-  box-shadow: 5px 10px 8px #888888;
-  background-color: white;
-}
-.day:hover {
-  opacity: 75%;
-  border: solid 1px #167bca;
-}
-.graph-btns {
-  margin: 20px 0;
-  display: inline-block;
-  width: 100px;
-}
-.times {
-  font-size: 15px;
-}
-.side-numbers {
-  font-size: 8px;
-}
-.graph {
-  padding: 10px 0;
-  margin: 10px;
-  border: solid 1px #ff3366;
-  border-radius: 10px;
-  box-shadow: 5px 10px 8px #888888;
-  background-color: white;
+.symbol-and-degrees {
+  text-align: right;
+  padding: 10px 30px;
 }
 .local-city-btn {
   margin: 0 10px;
   padding: 6px 21px;
+}
+.icons {
+  height: 50px;
+  width: 50px;
 }
 .signature {
   text-align: center;
@@ -103,10 +79,7 @@ body {
   margin: 0;
   text-shadow: 2px 2px grey;
 }
-.symbol-and-degrees {
-  text-align: right;
-  padding: 10px 30px;
-}
+
 #current-temperature-figure {
   font-size: xx-large;
 }
@@ -126,12 +99,6 @@ body {
   opacity: 100%;
   cursor: pointer;
   text-decoration: underline;
-}
-
-#graph-img,
-.times {
-  margin: 10px auto;
-  width: 100%;
 }
 
 #forecast {

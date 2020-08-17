@@ -40,7 +40,7 @@ function displayForecast(response) {
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3 class="center">${formatHours(forecast.dt * 1000)}</h3>
-      <img
+      <img class = "icons"
       src="https://openweathermap.org/img/wn/${
         forecast.weather[0].icon
       }@2x.png" alt=""
@@ -254,7 +254,7 @@ localForm.addEventListener("submit", localsearch);
 //still need to:
 // fix timezones
 //make weather descriptions capitalised
-//make weather symbols colourful
+//make big weather symbol better
 
 //notes from sheCodes:
 //vanilla project html -
