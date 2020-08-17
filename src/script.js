@@ -30,8 +30,6 @@ function formatHours(timestamp) {
   return `${hours}:${minutes}`;
 }
 
-//this function is linked to the display forecast function call back within the search function
-
 function displayForecast(response) {
   let forecast = null;
   let forecastElement = document.querySelector("#forecast");
@@ -88,7 +86,6 @@ function showCelsius(event) {
 }
 
 //The following code reads the city from the search bar input and posts it on the page
-//it also changes most of the data and colours for today to match that city's weather
 
 function search(event) {
   event.preventDefault();
@@ -107,7 +104,7 @@ function search(event) {
     cityShown.innerHTML = "Please enter a city...";
   }
 }
-//the following codes the local button - there is lots of repeated code and I would like to clean it
+//the following codes the local button
 function localsearch(eventLocal) {
   eventLocal.preventDefault();
   function findPosition(position) {
@@ -259,13 +256,8 @@ localForm.addEventListener("submit", localsearch);
 //
 
 //still need to:
-//fix "Please enter a city"
-//fix - local search cityshown
-// fix precipitation (currently showing pressure)
 // fix timezones
 //make weather descriptions capitalised
-//work out how to merge current and search engine code
-//move please enter a city so it doesnt replace city
 //make an index of weather icon codes and put own images in
 
 //notes from sheCodes:
