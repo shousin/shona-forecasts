@@ -256,8 +256,9 @@ localForm.addEventListener("submit", localsearch);
 //still need to:
 // fix timezones
 //make weather descriptions capitalised
+//make weather symbols colourful
 
 //notes from sheCodes:
 //vanilla project html -
-//3. Add line-heights to things (line-height: 1; is the same as line-height: 64px; )
-//4. replace container with div.weather-app-wrapper and put container outside all code
+//Add line-heights to things (line-height: 1; is the same as line-height: 64px; )
+//replace container with div.weather-app-wrapper and put container outside all code
