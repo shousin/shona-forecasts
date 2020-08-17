@@ -96,15 +96,16 @@ function search(event) {
   city = city.value.toLowerCase().replace(/\b[a-z]/g, function (letter) {
     return letter.toUpperCase();
   });
-
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
-  //the following code is to forecast weather
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
-  //the following code changed the css of the degrees buttons
-
-  cityShown.innerHTML = city;
+  if (city) {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+    axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
+    //the following code is to forecast weather
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
+    axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
+    //the following code changed the css of the degrees buttons
+  } else {
+    cityShown.innerHTML = "Please enter a city...";
+  }
 }
 //the following codes the local button - there is lots of repeated code and I would like to clean it
 function localsearch(eventLocal) {
@@ -125,18 +126,18 @@ function showTemperature(response) {
   let humidity = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed * 2.237);
   let pressure = response.data.main.pressure;
-
+  city = response.data.name;
+  cityShown.innerHTML = city;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   temperatureElement.innerHTML = `${temperature}`;
   descriptionElement.innerHTML = `${description}`;
   humidityElement.innerHTML = ` ${humidity}`;
   windElement.innerHTML = ` ${wind}`;
   pressureElement.innerHTML = `${pressure}`;
-
   document.getElementById("celsius-btn").style.opacity = "100%";
   document.getElementById("fahrenheit-btn").style.opacity = "50%";
   isFahrenheitFunctionCalled = false;
-
+  //the following code changes the background colour and icon depending on the weather
   if (icon === "03d" || icon === "04d") {
     weatherSymbolElement.innerHTML = "☁";
     document.getElementById("current-weather-text").style.color = "#fbc2eb";

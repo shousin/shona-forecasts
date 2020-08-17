@@ -30,7 +30,9 @@ body {
 .all-current-info-left {
   margin: 20px 0px;
 }
-
+.current-day-and-time {
+  padding-bottom: 10px;
+}
 .symbol {
   color: #167bca;
   height: 30px;
