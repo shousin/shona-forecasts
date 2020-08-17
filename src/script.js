@@ -1,4 +1,4 @@
-//The following code sets the current day and time:
+//The following code sets the day and time:
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
@@ -30,6 +30,33 @@ function formatHours(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+//this function is linked to the display forecast function call back within the search function
+
+function displayForecast(response) {
+  let forecast = null;
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    //the += below means it goes through the "for loop" defined above, 1 by 1 and it posts it next to the previous innerHTMl
+    forecastElement.innerHTML += `
+    <div class="col-2">
+      <h3 class="center">${formatHours(forecast.dt * 1000)}</h3>
+      <img
+      src="https://openweather.org/img/wn/${
+        forecast.weather[0].icon
+      }@2x.png" alt=""
+      
+      />
+      <div class="center"> 
+      <strong> ${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(
+      forecast.main.temp_min
+    )}°
+    </div>
+    </div>
+  `;
+  }
+}
 //the following code converts fahrenheit to celsius and vice versa:
 
 function showFahrenheit(event) {
@@ -62,34 +89,6 @@ function showCelsius(event) {
 
 //The following code reads the city from the search bar input and posts it on the page
 //it also changes most of the data and colours for today to match that city's weather
-
-//this function is linked to the display forecast function call back within the search function
-
-function displayForecast(response) {
-  let forecast = null;
-  let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = null;
-  for (let index = 0; index < 6; index++) {
-    forecast = response.data.list[index];
-    //+= means it goes through the index defined above, 1 by 1
-    forecastElement.innerHTML += `
-    <div class="col-2">
-      <h3 class="center">12:00</h3>
-      <img
-      src="https://openweather.org/img/wn/${
-        forecast.weather[0].icon
-      }@2x.png" alt=""
-      
-      />
-      <div class="center"> 
-      <strong> ${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(
-      forecast.main.temp_min
-    )}°
-    </div>
-    </div>
-  `;
-  }
-}
 
 function search(event) {
   event.preventDefault();
