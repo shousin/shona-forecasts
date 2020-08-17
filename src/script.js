@@ -57,18 +57,18 @@ function displayForecast(response) {
       forecastSymbol = "☀";
     } else if (icon === "01n") {
       forecastSymbol = "🌕";
+    } else if (icon === "50d" || icon === "50n") {
+      forecastSymbol = "🌫";
+    } else {
+      forecastSymbol = "⚙";
     }
-  } else if (icon === "50d" || icon === "50n" ) {
-    forecastSymbol = "🌫";
-  } else { forecastSymbol = "⚙" }
     //the += below means it goes through the "for loop" defined above, 1 by 1 and it posts it next to the previous innerHTMl
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3 class="center">${formatHours(forecast.dt * 1000)}</h3>
-      <img
-      src="https://openweather.org/img/wn/${forecastSymbol}@2x.png" alt=""
-      
-      />
+      <div>
+      ${forecastSymbol}
+      </div>
       <div class="center"> 
       <strong> ${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(
       forecast.main.temp_min
