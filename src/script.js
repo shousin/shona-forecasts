@@ -1,40 +1,34 @@
 //The following code sets the current day and time:
 
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
-let day = days[now.getDay()];
-let hour = (now.getHours() < 10 ? "0" : "") + now.getHours();
-let minutes = (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
-let currentDayAndTime = document.querySelector("#current-day-and-time");
-currentDayAndTime.innerHTML = `${day} ${hour}:${minutes}`;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${formatHours(timestamp)}`;
+}
 
-let city = document.querySelector("h1");
-let apiKey = "cc6881d929e8ea4776abf51199d73643";
-let humidityElement = document.querySelector("#current-humidity");
-let descriptionElement = document.querySelector("#current-weather-text");
-let windElement = document.querySelector("#current-wind");
-let pressureElement = document.querySelector("#current-pressure");
-let temperatureElement = document.querySelector("#current-temperature-figure");
-let weatherSymbolElement = document.querySelector("#current-weather-symbol");
-let searchForm = document.querySelector("#search-bar");
-let localForm = document.querySelector("#local-city-btn");
-let celsiusButton = document.querySelector("#celsius-btn");
-let fahrenheitButton = document.querySelector("#fahrenheit-btn");
-let isFahrenheitFunctionCalled = false;
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-celsiusButton.addEventListener("click", showCelsius);
-fahrenheitButton.addEventListener("click", showFahrenheit);
-searchForm.addEventListener("submit", search);
-localForm.addEventListener("submit", localsearch);
+  return `${hours}:${minutes}`;
+}
 
 //the following code converts fahrenheit to celsius and vice versa:
 
@@ -70,27 +64,31 @@ function showCelsius(event) {
 //it also changes most of the data and colours for today to match that city's weather
 
 //this function is linked to the display forecast function call back within the search function
+
 function displayForecast(response) {
+  let forecast = null;
   let forecastElement = document.querySelector("#forecast");
-  let forecast = response.data.list[0];
-  console.log(forecast);
-  forecastElement.innerHTML =
-    //there is an error because the image domain belongs to Gandi.net
-    `
+  forecastElement.innerHTML = null;
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    //+= means it goes through the index defined above, 1 by 1
+    forecastElement.innerHTML += `
     <div class="col-2">
       <h3 class="center">12:00</h3>
       <img
-      src="http://openweather.org/img/wn/${
+      src="https://openweather.org/img/wn/${
         forecast.weather[0].icon
       }@2x.png" alt=""
       
       />
-      <div class="center"> 🎃 <br />
+      <div class="center"> 
       <strong> ${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(
       forecast.main.temp_min
-    )}°</div>
+    )}°
+    </div>
     </div>
   `;
+  }
 }
 
 function search(event) {
@@ -110,7 +108,7 @@ function search(event) {
       let humidity = response.data.main.humidity;
       let wind = Math.round(response.data.wind.speed * 2.237);
       let pressure = response.data.main.pressure;
-
+      dateElement.innerHTML = formatDate(response.data.dt * 1000);
       temperatureElement.innerHTML = `${temperature}`;
       descriptionElement.innerHTML = `${description}`;
       humidityElement.innerHTML = ` ${humidity}`;
@@ -240,7 +238,31 @@ function search(event) {
   isFahrenheitFunctionCalled = false;
 }
 
-//the following code changes the data to that of the current location of the device
+let city = document.querySelector("h1");
+let apiKey = "cc6881d929e8ea4776abf51199d73643";
+let humidityElement = document.querySelector("#current-humidity");
+let descriptionElement = document.querySelector("#current-weather-text");
+let windElement = document.querySelector("#current-wind");
+let pressureElement = document.querySelector("#current-pressure");
+let temperatureElement = document.querySelector("#current-temperature-figure");
+let weatherSymbolElement = document.querySelector("#current-weather-symbol");
+let searchForm = document.querySelector("#search-bar");
+let localForm = document.querySelector("#local-city-btn");
+let dateElement = document.querySelector("#current-day-and-time");
+let celsiusButton = document.querySelector("#celsius-btn");
+let fahrenheitButton = document.querySelector("#fahrenheit-btn");
+let isFahrenheitFunctionCalled = false;
+
+celsiusButton.addEventListener("click", showCelsius);
+fahrenheitButton.addEventListener("click", showFahrenheit);
+searchForm.addEventListener("submit", search);
+localForm.addEventListener("submit", localsearch);
+
+//
+
+//
+
+//the following codes the local button - there is lots of repeated code and I would like to clean it
 function localsearch(eventLocal) {
   eventLocal.preventDefault();
   function findPosition(position) {
