@@ -67,7 +67,7 @@ function showCelsius(event) {
 }
 
 //The following code reads the city from the search bar input and posts it on the page
-//it also changes most of the data and colours for today to match that city
+//it also changes most of the data and colours for today to match that city's weather
 //more functions:
 
 //this function is linked to the display forecast function call back within the search function
