@@ -62,7 +62,6 @@ function showFahrenheit(event) {
   if (isFahrenheitFunctionCalled === false) {
     let celsiusFigure = Number(temperatureElement.innerHTML);
     let fahrenheitFigure = (celsiusFigure * 9) / 5 + 32;
-    console.log(fahrenheitFigure);
     temperatureElement.innerHTML = Math.round(fahrenheitFigure);
     document.getElementById("fahrenheit-btn").style.opacity = "100%";
     document.getElementById("celsius-btn").style.opacity = "50%";
@@ -75,7 +74,6 @@ function showCelsius(event) {
   if (isFahrenheitFunctionCalled === true) {
     let fahrenheitFigure = Number(temperatureElement.innerHTML);
     let celsiusFigure = (fahrenheitFigure - 32) * (5 / 9);
-    console.log(fahrenheitFigure);
     temperatureElement.innerHTML = Math.round(celsiusFigure);
     document.getElementById("celsius-btn").style.opacity = "100%";
     document.getElementById("fahrenheit-btn").style.opacity = "50%";
