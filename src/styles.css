@@ -73,6 +73,9 @@ body {
   margin: 0 10px;
   padding: 6px 21px;
 }
+.signature {
+  text-align: center;
+}
 #local-city-btn {
   padding: 0 31px 0;
 }

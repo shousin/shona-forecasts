@@ -92,7 +92,7 @@ function showCelsius(event) {
 
 function search(event) {
   event.preventDefault();
-  let city = document.querySelector("#search-bar-input");
+  city = document.querySelector("#search-bar-input");
   city = city.value.toLowerCase().replace(/\b[a-z]/g, function (letter) {
     return letter.toUpperCase();
   });
