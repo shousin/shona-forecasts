@@ -36,42 +36,16 @@ function displayForecast(response) {
   forecastElement.innerHTML = null;
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
-
-    //I made the following code because when I tried to access the open weather icons there were errors connecting with the website
-    icon = forecast.weather[0].icon;
-    let forecastSymbol = "symbol";
-    if (icon === "03d" || icon === "04d" || icon === "04n" || icon === "03n") {
-      forecastSymbol = "fas fa-cloud";
-    } else if (icon === "02n" || icon === "02d") {
-      forecastSymbol = "fas fa-cloud-sun";
-    } else if (
-      icon === "10d" ||
-      icon === "09d" ||
-      icon === "10n" ||
-      icon === "09n"
-    ) {
-      forecastSymbol = "fas fa-cloud-rain";
-    } else if (icon === "11d" || icon === "11n") {
-      forecastSymbol = "fas fa-poo-storm";
-    } else if (icon === "13d" || icon === "13n") {
-      forecastSymbol = "fas fa-snowflake";
-    } else if (icon === "01d") {
-      forecastSymbol = "fas fa-sun";
-    } else if (icon === "01n") {
-      forecastSymbol = "fas fa-moon";
-    } else if (icon === "50d" || icon === "50n") {
-      forecastSymbol = "fas fa-smog";
-    } else {
-      forecastSymbol = "fas fa-user-cog";
-    }
-
     //the += below means it goes through the "for loop" defined above, 1 by 1 and it posts it next to the previous innerHTMl
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3 class="center">${formatHours(forecast.dt * 1000)}</h3>
-      <div>
-      <i class="${forecastSymbol}"></i>
-      </div>
+      <img
+      src="https://openweathermap.org/img/wn/${
+        forecast.weather[0].icon
+      }@2x.png" alt=""
+      
+      />
       <div class="center"> 
       <strong> ${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(
       forecast.main.temp_min
