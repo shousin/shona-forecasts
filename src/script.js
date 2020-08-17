@@ -115,6 +115,8 @@ function localsearch(eventLocal) {
     let longitude = `${position.coords.longitude}`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
     axios.get(`${apiUrl}&units=metric`).then(showTemperature);
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+    axios.get(`${apiUrl}&units=metric`).then(displayForecast);
   }
   navigator.geolocation.getCurrentPosition(findPosition);
 }
