@@ -89,31 +89,22 @@ function showCelsius(event) {
 
 //The following code reads the city from the search bar input and posts it on the page
 //it also changes most of the data and colours for today to match that city's weather
-let city = document.querySelector("h1");
 
 function search(event) {
-  if (city) {
-    event.preventDefault();
-    city = document.querySelector("#search-bar-input");
-    city = city.value.toLowerCase().replace(/\b[a-z]/g, function (letter) {
-      return letter.toUpperCase();
-    });
+  event.preventDefault();
+  let city = document.querySelector("#search-bar-input");
+  city = city.value.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+    return letter.toUpperCase();
+  });
 
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-    axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
-    //the following code is to forecast weather
-    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
-    axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
-    //the following code changed the css of the degrees buttons
-    document.getElementById("celsius-btn").style.opacity = "100%";
-    document.getElementById("fahrenheit-btn").style.opacity = "50%";
-    isFahrenheitFunctionCalled = false;
-    cityShown.innerHTML = city;
-  } else if (latitude) {
-    cityShown.innerHTML = "hi";
-  } else {
-    city.innerHTML = `Please type a city...`;
-  }
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
+  //the following code is to forecast weather
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
+  //the following code changed the css of the degrees buttons
+
+  cityShown.innerHTML = city;
 }
 //the following codes the local button - there is lots of repeated code and I would like to clean it
 function localsearch(eventLocal) {
@@ -124,10 +115,7 @@ function localsearch(eventLocal) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
     axios.get(`${apiUrl}&units=metric`).then(showTemperature);
   }
-  document.getElementById("celsius-btn").style.opacity = "100%";
-  document.getElementById("fahrenheit-btn").style.opacity = "50%";
   navigator.geolocation.getCurrentPosition(findPosition);
-  isFahrenheitFunctionCalled = false;
 }
 
 function showTemperature(response) {
@@ -144,6 +132,10 @@ function showTemperature(response) {
   humidityElement.innerHTML = ` ${humidity}`;
   windElement.innerHTML = ` ${wind}`;
   pressureElement.innerHTML = `${pressure}`;
+
+  document.getElementById("celsius-btn").style.opacity = "100%";
+  document.getElementById("fahrenheit-btn").style.opacity = "50%";
+  isFahrenheitFunctionCalled = false;
 
   if (icon === "03d" || icon === "04d") {
     weatherSymbolElement.innerHTML = "☁";
@@ -239,7 +231,7 @@ function showTemperature(response) {
 }
 
 //variables and event listeners
-
+let cityShown = document.querySelector("h1");
 let apiKey = "cc6881d929e8ea4776abf51199d73643";
 let humidityElement = document.querySelector("#current-humidity");
 let descriptionElement = document.querySelector("#current-weather-text");
@@ -253,7 +245,7 @@ let dateElement = document.querySelector("#current-day-and-time");
 let celsiusButton = document.querySelector("#celsius-btn");
 let fahrenheitButton = document.querySelector("#fahrenheit-btn");
 let isFahrenheitFunctionCalled = false;
-let cityShown = document.querySelector("h1");
+
 celsiusButton.addEventListener("click", showCelsius);
 fahrenheitButton.addEventListener("click", showFahrenheit);
 searchForm.addEventListener("submit", search);
