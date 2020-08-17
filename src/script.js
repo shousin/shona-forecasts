@@ -71,7 +71,26 @@ function showCelsius(event) {
 
 //this function is linked to the display forecast function call back within the search function
 function displayForecast(response) {
-  console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.list[0];
+  console.log(forecast);
+  forecastElement.innerHTML =
+    //there is an error because the image domain belongs to Gandi.net
+    `
+    <div class="col-2">
+      <h3 class="center">12:00</h3>
+      <img
+      src="http://openweather.org/img/wn/${
+        forecast.weather[0].icon
+      }@2x.png" alt=""
+      
+      />
+      <div class="center"> 🎃 <br />
+      <strong> ${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(
+      forecast.main.temp_min
+    )}°</div>
+    </div>
+  `;
 }
 
 function search(event) {
@@ -209,9 +228,9 @@ function search(event) {
     }
     axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 
-    //the following code is to forecast weather for today
+    //the following code is to forecast weather for today in 3 hour increments
 
-    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city.innerHTML}`;
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInputValueUpperCase}&units=metric`;
     axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
   } else {
     city.innerHTML = `Please type a city...`;
