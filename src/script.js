@@ -68,7 +68,6 @@ function showCelsius(event) {
 
 //The following code reads the city from the search bar input and posts it on the page
 //it also changes most of the data and colours for today to match that city's weather
-//more functions:
 
 //this function is linked to the display forecast function call back within the search function
 function displayForecast(response) {
@@ -148,13 +147,13 @@ function search(event) {
           "#495aff";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to right, #0acffe 0%, #495aff 100%)";
-      } else if (icon === "11d") {
+      } else if (icon === "11d" || icon === "11n") {
         weatherSymbolElement.innerHTML = "⛈";
-        document.getElementById("current-weather-text").style.color = "#847B7B";
+        document.getElementById("current-weather-text").style.color = "#b8235a";
         document.getElementById("current-weather-symbol").style.color =
-          "#847B7B";
+          "#b8235a";
         document.getElementById("body").style.backgroundImage =
-          "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; background-blend-mode: multiply,multiply";
+          "linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%)";
       } else if (icon === "13d") {
         weatherSymbolElement.innerHTML = "❄";
         document.getElementById("current-weather-text").style.color = "#eef1f5";
@@ -293,11 +292,11 @@ function localsearch(eventLocal) {
           "#495aff";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to right, #0acffe 0%, #495aff 100%)";
-      } else if (icon === "11d") {
+      } else if (icon === "11d" || icon === "11n") {
         weatherSymbolElement.innerHTML = "⛈";
-        document.getElementById("current-weather-text").style.color = "#847B7B";
+        document.getElementById("current-weather-text").style.color = "#b8235a";
         document.getElementById("current-weather-symbol").style.color =
-          "#847B7B";
+          "#b8235a";
         document.getElementById("body").style.backgroundImage =
           "linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%)";
       } else if (icon === "13d") {
