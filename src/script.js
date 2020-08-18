@@ -39,12 +39,13 @@ function displayForecast(response) {
     //the += below means it goes through the "for loop" defined above, 1 by 1 and it posts it next to the previous innerHTMl
     forecastElement.innerHTML += `
     <div class="col-2">
-      <h3 class="center">${formatHours(forecast.dt * 1000)}</h3>
+      <h3 class="center" id = "hours">${formatHours(forecast.dt * 1000)}</h3>
       <img class = "icons"
       src="https://openweathermap.org/img/wn/${
         forecast.weather[0].icon
       }@2x.png" alt="${forecast.weather[0].description}"
       />
+      <br>
       <small> ${forecast.weather[0].description} </small>
       <div class="center"> 
       <strong> ${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(
@@ -123,6 +124,11 @@ function showTemperature(response) {
   let humidity = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed * 2.237);
   let pressure = response.data.main.pressure;
+  description = description
+    .toLowerCase()
+    .replace(/\b[a-z]/g, function (letter) {
+      return letter.toUpperCase();
+    });
   city = response.data.name;
   cityShown.innerHTML = city;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
@@ -131,96 +137,85 @@ function showTemperature(response) {
   humidityElement.innerHTML = ` ${humidity}`;
   windElement.innerHTML = ` ${wind}`;
   pressureElement.innerHTML = `${pressure}`;
+  weatherSymbolElement.innerHTML = `<img
+      src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${description}"
+      />`;
   document.getElementById("celsius-btn").style.opacity = "100%";
   document.getElementById("fahrenheit-btn").style.opacity = "50%";
   isFahrenheitFunctionCalled = false;
   //the following code changes the background colour and icon depending on the weather
   if (icon === "03d" || icon === "04d") {
-    weatherSymbolElement.innerHTML = "☁";
-    document.getElementById("current-weather-text").style.color = "#fbc2eb";
-    document.getElementById("current-weather-symbol").style.color = "#fbc2eb";
+    document.getElementById("current-day-and-time").style.color = "#a18cd1";
+    document.getElementById("current-weather-text").style.color = "#a18cd1";
+    document.getElementById("current-weather-symbol").style.color = "#a18cd1";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)";
   } else if (icon === "04n") {
-    weatherSymbolElement.innerHTML = "☁";
     document.getElementById("current-weather-text").style.color = "#33354d";
     document.getElementById("current-weather-symbol").style.color = "#33354d";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(-20deg,  #0f0f0f 0%, #33354d 100%)";
   } else if (icon === "03n") {
-    weatherSymbolElement.innerHTML = "☁";
     document.getElementById("current-weather-text").style.color = "#bac8e0";
     document.getElementById("current-weather-symbol").style.color = "#bac8e0";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #6a85b6 0%, #23272e 100%)";
   } else if (icon === "02n") {
-    weatherSymbolElement.innerHTML = "🌥";
     document.getElementById("current-weather-text").style.color = "#4403BC";
     document.getElementById("current-weather-symbol").style.color = "#4403BC";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #a18cd1 0%, #2f2435 100%)";
   } else if (icon === "02d") {
-    weatherSymbolElement.innerHTML = "🌥";
     document.getElementById("current-weather-text").style.color = "#fed6e3";
     document.getElementById("current-weather-symbol").style.color = "#fed6e3";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)";
   } else if (icon === "10d" || icon === "09d") {
-    weatherSymbolElement.innerHTML = "🌧";
     document.getElementById("current-weather-text").style.color = "#ace0f9";
     document.getElementById("current-weather-symbol").style.color = "#ace0f9";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
   } else if (icon === "10n" || icon === "09n") {
-    weatherSymbolElement.innerHTML = "🌧";
     document.getElementById("current-weather-text").style.color = "#495aff";
     document.getElementById("current-weather-symbol").style.color = "#495aff";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #0acffe 0%, #495aff 100%)";
   } else if (icon === "11d" || icon === "11n") {
-    weatherSymbolElement.innerHTML = "⛈";
     document.getElementById("current-weather-text").style.color = "#b8235a";
     document.getElementById("current-weather-symbol").style.color = "#b8235a";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%)";
   } else if (icon === "13d") {
-    weatherSymbolElement.innerHTML = "❄";
     document.getElementById("current-weather-text").style.color = "#eef1f5";
     document.getElementById("current-weather-symbol").style.color = "#eef1f5";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)";
   } else if (icon === "13n") {
-    weatherSymbolElement.innerHTML = "❄";
     document.getElementById("current-weather-text").style.color = "#bcbcbc";
     document.getElementById("current-weather-symbol").style.color = "#bcbcbc";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%)";
   } else if (icon === "01d") {
-    weatherSymbolElement.innerHTML = "☀";
     document.getElementById("current-weather-text").style.color = "#f9d423";
     document.getElementById("current-weather-symbol").style.color = "#f9d423";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #f83600 0%, #f9d423 100%)";
   } else if (icon === "01n") {
-    weatherSymbolElement.innerHTML = "🌕";
     document.getElementById("current-weather-text").style.color = "#161513";
     document.getElementById("current-weather-symbol").style.color = "#161513";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #243949 0%, #161513 100%)";
   } else if (icon === "50d") {
-    weatherSymbolElement.innerHTML = "🌫";
     document.getElementById("current-weather-text").style.color = "#020f75";
     document.getElementById("current-weather-symbol").style.color = "#020f75";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #d4d4b1 71%, #0c1db8 87%, #020f75 100%)";
   } else if (icon === "50n") {
-    weatherSymbolElement.innerHTML = "🌫";
     document.getElementById("current-weather-text").style.color = "#7046aa";
     document.getElementById("current-weather-symbol").style.color = "#7046aa";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #7046aa 100%)";
   } else {
-    weatherSymbolElement.innerHTML = "⚙";
     document.getElementById("current-weather-text").style.color = "green";
     document.getElementById("current-weather-symbol").style.color = "green";
     document.getElementById("body").style.backgroundImage =
@@ -252,9 +247,7 @@ localForm.addEventListener("submit", localsearch);
 //
 
 //still need to:
-// fix timezones
-//make weather descriptions capitalised
-//make big weather symbol better
+// fix timezones - API is wrong not me
 
 //notes from sheCodes:
 //vanilla project html -

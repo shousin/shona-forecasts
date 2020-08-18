@@ -16,7 +16,8 @@
 <body id="body">
 
     <div class="container">
-<img src="images/logo.png" alt="shonaforecasts" id="logo" />
+        <div class="weather-app-wrapper">
+        <img src="images/logo.png" alt="shonaforecasts" id="logo" />
 
         <form class="search-bar" id="search-bar">
             <div class="row">
@@ -57,45 +58,54 @@
                <div class="current-day-and-time">
                 <small>Last updated: </small>
                 <div id="current-day-and-time">
-                   ...
+                  
                 </div>
             </div>
             <br>
                 <div>
-                    Humidity:<span id="current-humidity"> ...</span>%
+                    Humidity:<span id="current-humidity"> </span>%
                 </div>
                 <div>
-                    Wind: <span id="current-wind">...</span>mph
+                    Wind: <span id="current-wind"></span>mph
                 </div>
 
                 <div>
                     Pressure: <span id="current-pressure">
-                        ...</span>hPa
+                        </span>hPa
                 </div>
             </div>
             <div class="col-6 symbol-and-degrees">
-                <large id="current-weather-symbol"> <i class="fas fa-sun"></i>
-                </large>
+                <large id="current-weather-symbol"> <i class="fas fa-sun"></i></large>
                 <div id="current-weather-text">
-                    ...
+
                 </div>
                 <div id="current-temperature">
-                    <span id="current-temperature-figure">... </span>
-                   <span id="celsius-and-fahrenheit"> <a id="celsius-btn">°C</a>
-                    <a id="fahrenheit-btn">°F</a> </span>
+                <span id="current-temperature-figure"> 
+                </span>
+                <span id="celsius-and-fahrenheit">
+                    <a id="celsius-btn">°C</a>
+                    <a id="fahrenheit-btn">°F</a> 
+                </span>
                 </div>
             </div>
-
         </div>
-<div class="row forecast center" id="forecast">
-    
-    <br><br><br><br><br>
-</div>
-</div>
-    <p class="signature">
+
+        <div class="row forecast center" id="forecast">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+<p id="signature">
+   <small class="signature">
         Coded by shonaashton |
         <a class="git-hub-link" href="https://github.com/shousin/shona-forecasts" target="_blank">GitHub Repository</a>
-    </p>
+    </small>
+</p>
     </div>
     <script src=src/script.js></script>
 </body>
