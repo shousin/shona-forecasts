@@ -39,7 +39,7 @@ body {
 }
 .symbol-and-degrees {
   text-align: right;
-  padding: 10px 30px;
+  padding: 0px 30px 30px;
 }
 .local-city-btn {
   margin: 0 10px;
@@ -72,11 +72,14 @@ body {
 #current-weather-text {
   color: #ffa726;
   font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 #current-weather-symbol {
   color: #ffa726;
   font-size: 75px;
   margin: 0;
+  padding: 0;
   text-shadow: 2px 2px grey;
 }
 
