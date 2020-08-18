@@ -84,6 +84,15 @@ function showCelsius(event) {
   }
 }
 
+function startPage() {
+  let city = "London";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
+  //the following code is to forecast weather
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
+}
+
 //The following code reads the city from the search bar input and posts it on the page
 
 function search(event) {
@@ -98,7 +107,6 @@ function search(event) {
     //the following code is to forecast weather
     apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
     axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
-    //the following code changed the css of the degrees buttons
   } else {
     cityShown.innerHTML = "Please enter a city...";
   }
@@ -245,9 +253,8 @@ searchForm.addEventListener("submit", search);
 localForm.addEventListener("submit", localsearch);
 
 //
-
+startPage();
 //still need to:
-//make default state look nicer
 //document.getElementById("current-day-and-time").style.color = "#";
 //work out neater way of changing background colours
 // fix timezones - API is wrong not me
