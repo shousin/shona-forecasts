@@ -248,5 +248,7 @@ localForm.addEventListener("submit", localsearch);
 
 //still need to:
 //make default state look nicer
+//document.getElementById("current-day-and-time").style.color = "#";
+//work out neater way of changing background colours
 // fix timezones - API is wrong not me
 //Add line-heights to things (line-height: 1; is the same as line-height: 64px; )
