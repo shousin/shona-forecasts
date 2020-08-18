@@ -174,7 +174,7 @@ function showTemperature(response) {
     bkgrdColor1 = "161513";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #243949 0%, #161513 100%)";
-    video.innerHTML = `<source src="Videos/sunsetclouds.mp4" />`;
+    video.innerHTML = `<source src="Videos/clearskynight.mp4" />`;
   } else if (icon === "02d") {
     sigColor = "000000";
     bkgrdColor1 = "EA7A5C";
@@ -186,13 +186,14 @@ function showTemperature(response) {
     bkgrdColor1 = "4403BC";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #a18cd1 0%, #2f2435 100%)";
-    video.innerHTML = `<source src="Videos/cloudsnight.mp4" />
+    video.innerHTML = `<source src="Videos/fewcloudsnight.mp4" />
       `;
   } else if (icon === "03d" || icon === "04d") {
     sigColor = "000000";
     bkgrdColor1 = "a18cd1";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)";
+    video.innerHTML = `<source src="Videos/clouds.mp4" />`;
   } else if (icon === "03n") {
     sigColor = "ffffff";
     bkgrdColor1 = "6a85b6";
@@ -218,38 +219,38 @@ function showTemperature(response) {
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #32136B 0%, #495aff 100%)";
     video = document.querySelector("#video");
-    video.innerHTML = `<source src="Videos/rain.mp4" type="video/mp4" />`;
+    video.innerHTML = `<source src="Videos/rainnight.mp4" type="video/mp4" />`;
   } else if (icon === "11d" || icon === "11n") {
     sigColor = "ffffff";
     bkgrdColor1 = "b8235a";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%)";
 
-    video.innerHTML = `<source src="Videos/rain.mp4" type="video/mp4" />`;
+    video.innerHTML = `<source src="Videos/storm.mp4" type="video/mp4" />`;
   } else if (icon === "13d") {
     sigColor = "000000";
     bkgrdColor1 = "eef1f5";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)";
-    video.innerHTML = `<source src="Videos/sunsetclouds.mp4" />`;
+    video.innerHTML = `<source src="Videos/snow.mp4" />`;
   } else if (icon === "13n") {
     sigColor = "ffffff";
     bkgrdColor1 = "bcbcbc";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%)";
-    video.innerHTML = ``;
+    video.innerHTML = `<source src="Videos/snownight.mp4" />`;
   } else if (icon === "50d") {
     sigColor = "000000";
     bkgrdColor1 = "020f75";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #d4d4b1 71%, #0c1db8 87%, #020f75 100%)";
-    video.innerHTML = `<source src="Videos/sunsetclouds.mp4" />`;
+    video.innerHTML = `<source src="Videos/mist.mp4" />`;
   } else if (icon === "50n") {
     sigColor = "ffffff";
     bkgrdColor1 = "7046aa";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #7046aa 100%)";
-    video.innerHTML = `<source src="Videos/sunsetclouds.mp4" />`;
+    video.innerHTML = `<source src="Videos/mistnight.mp4" />`;
   } else {
     sigColor = "000000";
     bkgrdColor1 = "eea2a2";
