@@ -11,9 +11,13 @@ h3 {
 body {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
+.container {
+  margin: 30px auto;
+  padding: 10px 20px;
+}
 .weather-app-wrapper {
   background-color: white;
-  margin: 30px auto;
+  margin: 30px auto 10px;
   padding: 10px 20px;
   width: 500px;
   font-family: "Open Sans", sans-serif;
@@ -50,9 +54,6 @@ body {
 .icons {
   height: 50px;
   width: 50px;
-}
-#signature {
-  text-align: center;
 }
 
 #local-city-btn {
@@ -111,4 +112,10 @@ body {
 
 #forecast {
   padding-bottom: 10px;
+}
+#signature {
+  text-align: center;
+  display: block;
+  position: relative;
+  right: 16px;
 }

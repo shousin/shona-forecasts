@@ -138,6 +138,7 @@ function showTemperature(response) {
   let description = response.data.weather[0].description;
   let humidity = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed * 2.237);
+  //I could not find precipiation on the OpenWeatherMap website so I have used pressure
   let pressure = response.data.main.pressure;
   description = description
     .toLowerCase()
