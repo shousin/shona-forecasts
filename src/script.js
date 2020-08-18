@@ -177,6 +177,8 @@ function showTemperature(response) {
     bkgrdColor1 = "EA7A5C";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #E8F2AB 0%, #EA7A5C 100%)";
+    video.innerHTML = `<source src="Videos/coverr-raindrops--1572170453303.mp4" type="video/mp4" />
+      >`;
   } else if (icon === "02n") {
     sigColor = "ffffff";
     bkgrdColor1 = "4403BC";
@@ -202,6 +204,8 @@ function showTemperature(response) {
     bkgrdColor1 = "ace0f9";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
+    video.innerHTML = `<source src="Videos/coverr-raindrops--1572170453303.mp4" type="video/mp4" />
+      >`;
   } else if (icon === "09n" || icon === "10n") {
     sigColor = "ffffff";
     bkgrdColor1 = "32136B";
@@ -265,6 +269,7 @@ let dateElement = document.querySelector("#current-day-and-time");
 let celsiusButton = document.querySelector("#celsius-btn");
 let fahrenheitButton = document.querySelector("#fahrenheit-btn");
 let isFahrenheitFunctionCalled = false;
+let video = document.querySelector("video");
 
 celsiusButton.addEventListener("click", showCelsius);
 fahrenheitButton.addEventListener("click", showFahrenheit);
