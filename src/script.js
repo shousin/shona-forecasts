@@ -161,6 +161,7 @@ function showTemperature(response) {
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #f83600 0%, #f9d423 100%)";
   } else if (icon === "01n") {
+    document.getElementById("signature").style.color = "#ffffff";
     document.getElementById("current-day-and-time").style.color = "#161513";
     document.getElementById("current-weather-text").style.color = "#161513";
     document.getElementById("current-weather-symbol").style.color = "#161513";
@@ -173,6 +174,7 @@ function showTemperature(response) {
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #E8F2AB 0%, #EA7A5C 100%)";
   } else if (icon === "02n") {
+    document.getElementById("signature").style.color = "#ffffff";
     document.getElementById("current-day-and-time").style.color = "#4403BC";
     document.getElementById("current-weather-text").style.color = "#4403BC";
     document.getElementById("current-weather-symbol").style.color = "#4403BC";
@@ -185,12 +187,14 @@ function showTemperature(response) {
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)";
   } else if (icon === "03n") {
+    document.getElementById("signature").style.color = "#ffffff";
     document.getElementById("current-day-and-time").style.color = "#bac8e0";
     document.getElementById("current-weather-text").style.color = "#bac8e0";
     document.getElementById("current-weather-symbol").style.color = "#bac8e0";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #6a85b6 0%, #23272e 100%)";
   } else if (icon === "04n") {
+    document.getElementById("signature").style.color = "#ffffff";
     document.getElementById("current-day-and-time").style.color = "#33354d";
     document.getElementById("current-weather-text").style.color = "#33354d";
     document.getElementById("current-weather-symbol").style.color = "#33354d";
@@ -203,11 +207,12 @@ function showTemperature(response) {
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
   } else if (icon === "09n" || icon === "10n") {
-    document.getElementById("current-day-and-time").style.color = "#495aff";
-    document.getElementById("current-weather-text").style.color = "#495aff";
-    document.getElementById("current-weather-symbol").style.color = "#495aff";
+    document.getElementById("signature").style.color = "#ffffff";
+    document.getElementById("current-day-and-time").style.color = "#32136B";
+    document.getElementById("current-weather-text").style.color = "#32136B";
+    document.getElementById("current-weather-symbol").style.color = "#32136B";
     document.getElementById("body").style.backgroundImage =
-      "linear-gradient(to right, #0acffe 0%, #495aff 100%)";
+      "linear-gradient(to right, #32136B 0%, #495aff 100%)";
   } else if (icon === "11d" || icon === "11n") {
     document.getElementById("current-day-and-time").style.color = "#b8235a";
     document.getElementById("current-weather-text").style.color = "#b8235a";
@@ -221,6 +226,7 @@ function showTemperature(response) {
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)";
   } else if (icon === "13n") {
+    document.getElementById("signature").style.color = "#ffffff";
     document.getElementById("current-day-and-time").style.color = "#bcbcbc";
     document.getElementById("current-weather-text").style.color = "#bcbcbc";
     document.getElementById("current-weather-symbol").style.color = "#bcbcbc";
@@ -233,6 +239,7 @@ function showTemperature(response) {
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #d4d4b1 71%, #0c1db8 87%, #020f75 100%)";
   } else if (icon === "50n") {
+    document.getElementById("signature").style.color = "#ffffff";
     document.getElementById("current-day-and-time").style.color = "#7046aa";
     document.getElementById("current-weather-text").style.color = "#7046aa";
     document.getElementById("current-weather-symbol").style.color = "#7046aa";
