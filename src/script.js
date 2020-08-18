@@ -1,8 +1,16 @@
+function startPage() {
+  let city = "London";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
+  //the following code is to forecast weather
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
+}
+
 //The following code sets the day and time:
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
-
   let days = [
     "Sunday",
     "Monday",
@@ -40,7 +48,7 @@ function displayForecast(response) {
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3 class="center" id = "hours">${formatHours(forecast.dt * 1000)}</h3>
-      <img class = "icons"
+      <img class = "icons" id = "icons"
       src="https://openweathermap.org/img/wn/${
         forecast.weather[0].icon
       }@2x.png" alt="${forecast.weather[0].description}"
@@ -84,15 +92,6 @@ function showCelsius(event) {
   }
 }
 
-function startPage() {
-  let city = "London";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
-  //the following code is to forecast weather
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
-}
-
 //The following code reads the city from the search bar input and posts it on the page
 
 function search(event) {
@@ -111,6 +110,7 @@ function search(event) {
     cityShown.innerHTML = "Please enter a city...";
   }
 }
+
 //the following codes the local button
 function localsearch(eventLocal) {
   eventLocal.preventDefault();
@@ -125,6 +125,7 @@ function localsearch(eventLocal) {
   navigator.geolocation.getCurrentPosition(findPosition);
 }
 
+//the following code changes the data and formating of the page to match the weather in the chosen city
 function showTemperature(response) {
   let icon = response.data.weather[0].icon;
   console.log(icon);
@@ -152,9 +153,9 @@ function showTemperature(response) {
   document.getElementById("celsius-btn").style.opacity = "100%";
   document.getElementById("fahrenheit-btn").style.opacity = "50%";
   isFahrenheitFunctionCalled = false;
-  let sigColor = "000000";
-  let bkgrdColor1 = "ffffff";
-  let bkgrdColor2 = "ffffff";
+  //the following code changes the background colour and icon depending on the weather
+  let sigColor = "#";
+  let bkgrdColor1 = "#";
   if (icon === "01d") {
     sigColor = "000000";
     bkgrdColor1 = "f9d423";
@@ -231,7 +232,6 @@ function showTemperature(response) {
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)";
   }
-  //the following code changes the background colour and icon depending on the weather
   document.getElementById("signature").style.color = `#${sigColor}`;
   document.getElementById(
     "current-day-and-time"
@@ -265,10 +265,9 @@ fahrenheitButton.addEventListener("click", showFahrenheit);
 searchForm.addEventListener("submit", search);
 localForm.addEventListener("submit", localsearch);
 
-//
 startPage();
+
 //still need to:
-//document.getElementById("current-day-and-time").style.color = "#";
-//work out neater way of changing background colours
+//decide what to do with pressure - convert it??
 // fix timezones - API is wrong not me
 //Add line-heights to things (line-height: 1; is the same as line-height: 64px; )
