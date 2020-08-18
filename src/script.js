@@ -247,9 +247,6 @@ localForm.addEventListener("submit", localsearch);
 //
 
 //still need to:
+//make default state look nicer
 // fix timezones - API is wrong not me
-
-//notes from sheCodes:
-//vanilla project html -
 //Add line-heights to things (line-height: 1; is the same as line-height: 64px; )
-//replace container with div.weather-app-wrapper and put container outside all code
