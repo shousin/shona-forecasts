@@ -41,9 +41,14 @@ function formatHours(timestamp) {
 function displayForecast(response) {
   let forecast = null;
   let forecastElement = document.querySelector("#forecast");
+
   forecastElement.innerHTML = null;
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+    description = forecast.weather[0].description;
+    if (description === "clear sky") {
+      description = "clear<br>sky";
+    }
     //the += below means it goes through the "for loop" defined above, 1 by 1 and it posts it next to the previous innerHTMl
     forecastElement.innerHTML += `
     <div class="col-2">
@@ -51,10 +56,10 @@ function displayForecast(response) {
       <img class = "icons" id = "icons"
       src="https://openweathermap.org/img/wn/${
         forecast.weather[0].icon
-      }@2x.png" alt="${forecast.weather[0].description}"
+      }@2x.png" alt="${description}"
       />
       <br>
-      <small> ${forecast.weather[0].description} </small>
+      <small> ${description} </small>
       <div class="center"> 
       <strong> ${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(
       forecast.main.temp_min
@@ -65,7 +70,7 @@ function displayForecast(response) {
   }
 }
 //the following code converts fahrenheit to celsius and vice versa:
-
+//I wrote the following code without help from the videos so it might look quite different from what you are expecting
 function showFahrenheit(event) {
   event.preventDefault();
   if (isFahrenheitFunctionCalled === false) {
