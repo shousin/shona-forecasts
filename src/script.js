@@ -152,106 +152,96 @@ function showTemperature(response) {
   document.getElementById("celsius-btn").style.opacity = "100%";
   document.getElementById("fahrenheit-btn").style.opacity = "50%";
   isFahrenheitFunctionCalled = false;
-  //the following code changes the background colour and icon depending on the weather
-
+  let sigColor = "000000";
+  let bkgrdColor1 = "ffffff";
+  let bkgrdColor2 = "ffffff";
   if (icon === "01d") {
-    document.getElementById("current-day-and-time").style.color = "#f9d423";
-    document.getElementById("current-weather-text").style.color = "#f9d423";
-    document.getElementById("current-weather-symbol").style.color = "#f9d423";
+    sigColor = "000000";
+    bkgrdColor1 = "f9d423";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #f83600 0%, #f9d423 100%)";
   } else if (icon === "01n") {
-    document.getElementById("signature").style.color = "#ffffff";
-    document.getElementById("current-day-and-time").style.color = "#161513";
-    document.getElementById("current-weather-text").style.color = "#161513";
-    document.getElementById("current-weather-symbol").style.color = "#161513";
+    sigColor = "ffffff";
+    bkgrdColor1 = "161513";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #243949 0%, #161513 100%)";
   } else if (icon === "02d") {
-    document.getElementById("current-day-and-time").style.color = "#EA7A5C";
-    document.getElementById("current-weather-text").style.color = "#EA7A5C";
-    document.getElementById("current-weather-symbol").style.color = "#EA7A5C";
+    sigColor = "000000";
+    bkgrdColor1 = "EA7A5C";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #E8F2AB 0%, #EA7A5C 100%)";
   } else if (icon === "02n") {
-    document.getElementById("signature").style.color = "#ffffff";
-    document.getElementById("current-day-and-time").style.color = "#4403BC";
-    document.getElementById("current-weather-text").style.color = "#4403BC";
-    document.getElementById("current-weather-symbol").style.color = "#4403BC";
+    sigColor = "ffffff";
+    bkgrdColor1 = "4403BC";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #a18cd1 0%, #2f2435 100%)";
   } else if (icon === "03d" || icon === "04d") {
-    document.getElementById("current-day-and-time").style.color = "#a18cd1";
-    document.getElementById("current-weather-text").style.color = "#a18cd1";
-    document.getElementById("current-weather-symbol").style.color = "#a18cd1";
+    sigColor = "000000";
+    bkgrdColor1 = "a18cd1";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)";
   } else if (icon === "03n") {
-    document.getElementById("signature").style.color = "#ffffff";
-    document.getElementById("current-day-and-time").style.color = "#bac8e0";
-    document.getElementById("current-weather-text").style.color = "#bac8e0";
-    document.getElementById("current-weather-symbol").style.color = "#bac8e0";
+    sigColor = "ffffff";
+    bkgrdColor1 = "6a85b6";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #6a85b6 0%, #23272e 100%)";
   } else if (icon === "04n") {
-    document.getElementById("signature").style.color = "#ffffff";
-    document.getElementById("current-day-and-time").style.color = "#33354d";
-    document.getElementById("current-weather-text").style.color = "#33354d";
-    document.getElementById("current-weather-symbol").style.color = "#33354d";
+    sigColor = "ffffff";
+    bkgrdColor1 = "33354d";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(-20deg,  #0f0f0f 0%, #33354d 100%)";
   } else if (icon === "09d" || icon === "10d") {
-    document.getElementById("current-day-and-time").style.color = "#ace0f9";
-    document.getElementById("current-weather-text").style.color = "#ace0f9";
-    document.getElementById("current-weather-symbol").style.color = "#ace0f9";
+    sigColor = "000000";
+    bkgrdColor1 = "ace0f9";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
   } else if (icon === "09n" || icon === "10n") {
-    document.getElementById("signature").style.color = "#ffffff";
-    document.getElementById("current-day-and-time").style.color = "#32136B";
-    document.getElementById("current-weather-text").style.color = "#32136B";
-    document.getElementById("current-weather-symbol").style.color = "#32136B";
+    sigColor = "ffffff";
+    bkgrdColor1 = "32136B";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #32136B 0%, #495aff 100%)";
   } else if (icon === "11d" || icon === "11n") {
-    document.getElementById("current-day-and-time").style.color = "#b8235a";
-    document.getElementById("current-weather-text").style.color = "#b8235a";
-    document.getElementById("current-weather-symbol").style.color = "#b8235a";
+    sigColor = "ffffff";
+    bkgrdColor1 = "b8235a";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%)";
   } else if (icon === "13d") {
-    document.getElementById("current-day-and-time").style.color = "#eef1f5";
-    document.getElementById("current-weather-text").style.color = "#eef1f5";
-    document.getElementById("current-weather-symbol").style.color = "#eef1f5";
+    sigColor = "000000";
+    bkgrdColor1 = "eef1f5";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)";
   } else if (icon === "13n") {
-    document.getElementById("signature").style.color = "#ffffff";
-    document.getElementById("current-day-and-time").style.color = "#bcbcbc";
-    document.getElementById("current-weather-text").style.color = "#bcbcbc";
-    document.getElementById("current-weather-symbol").style.color = "#bcbcbc";
+    sigColor = "ffffff";
+    bkgrdColor1 = "bcbcbc";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%)";
   } else if (icon === "50d") {
-    document.getElementById("current-day-and-time").style.color = "#020f75";
-    document.getElementById("current-weather-text").style.color = "#020f75";
-    document.getElementById("current-weather-symbol").style.color = "#020f75";
+    sigColor = "000000";
+    bkgrdColor1 = "020f75";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #d4d4b1 71%, #0c1db8 87%, #020f75 100%)";
   } else if (icon === "50n") {
-    document.getElementById("signature").style.color = "#ffffff";
-    document.getElementById("current-day-and-time").style.color = "#7046aa";
-    document.getElementById("current-weather-text").style.color = "#7046aa";
-    document.getElementById("current-weather-symbol").style.color = "#7046aa";
+    sigColor = "ffffff";
+    bkgrdColor1 = "7046aa";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #7046aa 100%)";
   } else {
-    document.getElementById("current-day-and-time").style.color = "green";
-    document.getElementById("current-weather-text").style.color = "green";
-    document.getElementById("current-weather-symbol").style.color = "green";
+    sigColor = "000000";
+    bkgrdColor1 = "eea2a2";
     document.getElementById("body").style.backgroundImage =
       "linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)";
   }
+  //the following code changes the background colour and icon depending on the weather
+  document.getElementById("signature").style.color = `#${sigColor}`;
+  document.getElementById(
+    "current-day-and-time"
+  ).style.color = `#${bkgrdColor1}`;
+  document.getElementById(
+    "current-weather-text"
+  ).style.color = `#${bkgrdColor1}`;
+  document.getElementById(
+    "current-weather-symbol"
+  ).style.color = `#${bkgrdColor1}`;
 }
 
 //variables and event listeners
