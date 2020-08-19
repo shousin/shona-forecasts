@@ -165,45 +165,75 @@ function showTemperature(response) {
   //the following code changes the background colour and icon depending on the weather
   let sigColor = "#";
   let bkgrdColor1 = "#";
+  //clear sky day
   if (icon === "01d") {
     sigColor = "000000";
     bkgrdColor1 = "f9d423";
+    //clear sky night
   } else if (icon === "01n") {
     sigColor = "ffffff";
     bkgrdColor1 = "161513";
+    //few clouds day
   } else if (icon === "02d") {
     sigColor = "000000";
     bkgrdColor1 = "EA7A5C";
+    //few clouds night
   } else if (icon === "02n") {
     sigColor = "ffffff";
     bkgrdColor1 = "4403BC";
-  } else if (icon === "03d" || icon === "04d") {
+    // scattered clouds day
+  } else if (icon === "03d") {
     sigColor = "000000";
     bkgrdColor1 = "a18cd1";
+    // scattered clouds night
   } else if (icon === "03n") {
     sigColor = "ffffff";
     bkgrdColor1 = "6a85b6";
+    //broken clouds day
+  } else if (icon === "04d") {
+    sigColor = "000000";
+    bkgrdColor1 = "a18cd1";
+    //broken clouds night
   } else if (icon === "04n") {
     sigColor = "ffffff";
     bkgrdColor1 = "33354d";
-  } else if (icon === "09d" || icon === "10d") {
+    //rain day
+  } else if (icon === "09d") {
     sigColor = "000000";
     bkgrdColor1 = "ace0f9";
-  } else if (icon === "09n" || icon === "10n") {
+    //rain night
+  } else if (icon === "09n") {
     sigColor = "ffffff";
     bkgrdColor1 = "32136B";
-  } else if (icon === "11d" || icon === "11n") {
+    //drizzle day
+  } else if (icon === "10d") {
+    sigColor = "000000";
+    bkgrdColor1 = "ace0f9";
+    //drizzle night
+  } else if (icon === "10n") {
+    sigColor = "ffffff";
+    bkgrdColor1 = "32136B";
+    //storm day
+  } else if (icon === "11d") {
     sigColor = "ffffff";
     bkgrdColor1 = "b8235a";
+    //storm night
+  } else if (icon === "11n") {
+    sigColor = "ffffff";
+    bkgrdColor1 = "b8235a";
+    //snow day
   } else if (icon === "13d") {
     sigColor = "000000";
     bkgrdColor1 = "eef1f5";
+    //snow night
   } else if (icon === "13n") {
     sigColor = "ffffff";
     bkgrdColor1 = "bcbcbc";
+    //mist day
   } else if (icon === "50d") {
     sigColor = "000000";
     bkgrdColor1 = "020f75";
+    //mist night
   } else if (icon === "50n") {
     sigColor = "ffffff";
     bkgrdColor1 = "7046aa";
