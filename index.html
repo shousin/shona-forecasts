@@ -16,101 +16,106 @@
 <body id="body">
 
     <div class="container">
+        <video autoplay muted loop id="background-video">
+            <source src="#" type="video/mp4"></video>
+
+
+
+
         <div class="weather-app-wrapper">
-        <img src="images/logo.png" alt="shonaforecasts" id="logo" />
+            <img src="images/logo.png" alt="shonaforecasts" id="logo" />
 
-        <form class="search-bar" id="search-bar">
-            <div class="row">
-                <div class="col-9">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Enter a city..." aria-label="Search"
-                        id="search-bar-input" />
+            <form class="search-bar" id="search-bar">
+                <div class="row">
+                    <div class="col-9">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Enter a city..."
+                            aria-label="Search" id="search-bar-input" />
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="search-btn">
+                            Search
+                        </button>
+                    </div>
                 </div>
-                <div class="col-3">
-                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="search-btn">
-                        Search
-                    </button>
+            </form>
+
+
+
+
+            <div class="row current-city">
+                <div class="col-8">
+                    <h1>
+                        Please Enter a City...
+                    </h1>
                 </div>
-            </div>
-        </form>
-
-
-
-
-        <div class="row current-city">
-            <div class="col-8">
-                <h1>
-                    Please Enter a City...
-                </h1>
-            </div>
-            <div class="col-4">
-                <form id="local-city-btn">
-                    <button class="btn btn-outline-success my-2 my-sm-0 local-city-btn" type="submit">
-                        Local
-                    </button>
-                </form>
-            </div>
-        </div>
-
-
-        <div class="row all-current-info">
-
-            <div class="col-6 all-current-info-left">
-               <div class="current-day-and-time">
-                <small>Last updated: </small>
-                <div id="current-day-and-time">
-                  
+                <div class="col-4">
+                    <form id="local-city-btn">
+                        <button class="btn btn-outline-success my-2 my-sm-0 local-city-btn" type="submit">
+                            Local
+                        </button>
+                    </form>
                 </div>
             </div>
-            <br>
-                <div>
-                    Humidity:<span id="current-humidity"> </span>%
-                </div>
-                <div>
-                    Wind: <span id="current-wind"></span>mph
-                </div>
 
-                <div>
-                    Pressure: <span id="current-pressure">
+
+            <div class="row all-current-info">
+
+                <div class="col-6 all-current-info-left">
+                    <div class="current-day-and-time">
+                        <small>Last updated: </small>
+                        <div id="current-day-and-time">
+
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        Humidity:<span id="current-humidity"> </span>%
+                    </div>
+                    <div>
+                        Wind: <span id="current-wind"></span>mph
+                    </div>
+
+                    <div>
+                        Pressure: <span id="current-pressure">
                         </span> hPa
+                    </div>
+                </div>
+
+
+                <div class="col-6 symbol-and-degrees">
+                    <large id="current-weather-symbol"> <i></i></large>
+                    <div id="current-weather-text">
+
+                    </div>
+                    <div id="current-temperature">
+                        <span id="current-temperature-figure">
+                        </span>
+                        <span id="celsius-and-fahrenheit">
+                            <a id="celsius-btn">°C</a>
+                            <a id="fahrenheit-btn">°F</a>
+                        </span>
+                    </div>
                 </div>
             </div>
-<div class="col-1" >
-    <video width="160" height="120" autoplay muted id="video">
-        
-    </video>
-</div>
-            <div class="col-5 symbol-and-degrees">
-                <large id="current-weather-symbol"> <i ></i></large>
-                <div id="current-weather-text">
 
-                </div>
-                <div id="current-temperature">
-                <span id="current-temperature-figure"> 
-                </span>
-                <span id="celsius-and-fahrenheit">
-                    <a id="celsius-btn">°C</a>
-                    <a id="fahrenheit-btn">°F</a> 
-                </span>
-                </div>
+            <div class="row forecast center" id="forecast">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </div>
         </div>
-
-        <div class="row forecast center" id="forecast">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-        </div>
-    </div>
-<p id="signature" class="signature"> 
-      <a class="git-hub-link" href="https://github.com/shousin/shona-forecasts" target="_blank">Open Source Code</a> by shonaashton 
-</p>
+        <p id="signature" class="signature">
+            <a class="git-hub-link" href="https://github.com/shousin/shona-forecasts" target="_blank">Open Source
+                Code</a> by shonaashton
+        </p>
 
     </div>
     <script src=src/script.js></script>
+
 </body>
 
 </html>
