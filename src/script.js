@@ -279,7 +279,7 @@ localForm.addEventListener("submit", localsearch);
 startPage();
 
 //still need to:
-//decide what to do with pressure - convert it??
+//add different videos to diversify bsckgronud options
 // fix timezones - API is wrong not me
 // make it so mobile version gets an image or gradient  instead of a video
 // https://ecstatic-bose-fe1b46.netlify.app/
