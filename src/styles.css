@@ -22,12 +22,10 @@ body {
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   width: 100%;
-  padding: 20px;
 }
 
 .container {
-  margin: 30px auto;
-  padding: 10px 20px;
+  margin: 0 auto;
 }
 .weather-app-wrapper {
   background-color: white;
@@ -57,10 +55,11 @@ body {
   height: 30px;
 }
 .symbol-and-degrees {
-  text-align: right;
+  text-align: center;
   padding: 0px 30px 30px;
   position: relative;
   bottom: 10px;
+  left: 50px;
 }
 .local-city-btn {
   margin: 10px 10px 0;
