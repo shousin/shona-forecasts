@@ -1,5 +1,5 @@
 function startPage() {
-  let city = "barcelona";
+  let city = "sheffield";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
   //the following code is to forecast weather
