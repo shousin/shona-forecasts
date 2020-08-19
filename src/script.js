@@ -1,5 +1,5 @@
 function startPage() {
-  let city = "london";
+  let city = "barcelona";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
   //the following code is to forecast weather
@@ -101,6 +101,7 @@ function showCelsius(event) {
 
 function search(event) {
   event.preventDefault();
+
   city = document.querySelector("#search-bar-input");
   city = city.value.toLowerCase().replace(/\b[a-z]/g, function (letter) {
     return letter.toUpperCase();
