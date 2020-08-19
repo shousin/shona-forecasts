@@ -251,6 +251,5 @@ startPage();
 //still need to:
 //decide what to do with pressure - convert it??
 // fix timezones - API is wrong not me
-//Add line-heights to things (line-height: 1; is the same as line-height: 64px; )
-//replace image names with icons so can call them using icon variable
+// make it so mobile version gets an image or gradient  instead of a video
 // https://ecstatic-bose-fe1b46.netlify.app/
