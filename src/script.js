@@ -158,6 +158,9 @@ function showTemperature(response) {
       src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${description}"
       />`;
   backgroundVideo.innerHTML = `<source src="Videos/${icon}.mp4" />`;
+  backgroundVideo.pause();
+  backgroundVideo.currentTime = 0;
+  backgroundVideo.load();
   console.log(icon);
   document.getElementById("celsius-btn").style.opacity = "100%";
   document.getElementById("fahrenheit-btn").style.opacity = "50%";
