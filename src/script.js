@@ -131,7 +131,7 @@ function localsearch(eventLocal) {
   navigator.geolocation.getCurrentPosition(findPosition);
 }
 
-//the following code changes the data and formating of the page to match the weather in the chosen city
+//the following code changes the data and formating of the page to match the weather icon in the chosen city
 function showTemperature(response) {
   let icon = response.data.weather[0].icon;
 
