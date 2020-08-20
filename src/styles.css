@@ -130,14 +130,17 @@ body {
   padding-bottom: 10px;
 }
 #signature {
+  text-align: center;
   display: block;
   margin: 0 auto;
-  position: relative;
-  left: 140px;
 }
 #text {
   color: white;
   font-size: 10px;
 }
 @media screen and (min-width: 240px) and (max-width: 640px) {
+  #signature {
+    position: relative;
+    left: 140px;
+  }
 }
