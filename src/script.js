@@ -276,6 +276,8 @@ let element = document.getElementById("text");
 if (isMobile) {
   element.innerHTML =
     "You are using the Mobile site, some features may not function correctly";
+} else {
+  element.innerHTML = "You are using the Desktop Site";
 }
 
 startPage();
