@@ -138,5 +138,9 @@ body {
   margin: 0 auto;
 }
 @media screen and (min-width: 240px) and (max-width: 640px) {
-  /*this code is a template in case I want to add css for mobile*/
+  #signature,
+  #mobile-desktop-text {
+    position: relative;
+    left: 140px;
+  }
 }
