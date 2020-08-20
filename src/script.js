@@ -274,8 +274,7 @@ localForm.addEventListener("submit", localsearch);
 let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 let element = document.getElementById("mobile-desktop-text");
 if (isMobile) {
-  element.innerHTML =
-    "You are using the Mobile site, some features may not function correctly";
+  element.innerHTML = "You are using the Mobile site";
 } else {
   element.innerHTML = "You are using the Desktop Site";
 }
