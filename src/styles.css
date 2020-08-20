@@ -134,9 +134,12 @@ body {
   display: block;
   margin: 0 auto;
 }
-#text {
+#mobile-desktop-text {
   color: white;
   font-size: 10px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 @media screen and (min-width: 240px) and (max-width: 640px) {
   #signature {

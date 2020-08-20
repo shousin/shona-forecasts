@@ -272,7 +272,7 @@ localForm.addEventListener("submit", localsearch);
 
 //here is some tester code to define if the user is using mobile or desktop:
 let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-let element = document.getElementById("text");
+let element = document.getElementById("mobile-desktop-text");
 if (isMobile) {
   element.innerHTML =
     "You are using the Mobile site, some features may not function correctly";
