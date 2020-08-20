@@ -1,9 +1,3 @@
-var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-var element = document.getElementById("text");
-if (isMobile) {
-  element.innerHTML = "You are using Mobile";
-}
-
 function startPage() {
   let city = "denver, texas";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
@@ -275,6 +269,14 @@ celsiusButton.addEventListener("click", showCelsius);
 fahrenheitButton.addEventListener("click", showFahrenheit);
 searchForm.addEventListener("submit", search);
 localForm.addEventListener("submit", localsearch);
+
+//here is some tester code to define if the user is using mobile or desktop:
+let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+let element = document.getElementById("text");
+if (isMobile) {
+  element.innerHTML =
+    "You are using the Mobile site, some features may not function correctly";
+}
 
 startPage();
 
