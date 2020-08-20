@@ -130,8 +130,8 @@ body {
   padding-bottom: 10px;
 }
 #signature {
-  text-align: center;
   display: block;
+  margin: 0 auto;
   position: relative;
-  right: 16px;
+  left: 25%;
 }
