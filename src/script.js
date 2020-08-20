@@ -49,6 +49,9 @@ function displayForecast(response) {
     if (description === "clear sky") {
       description = "clear<br>sky";
     }
+    if (description === "light rain") {
+      description = "light<br>rain";
+    }
     //the += below means it goes through the "for loop" defined above, 1 by 1 and it posts it next to the previous innerHTMl
     forecastElement.innerHTML += `
     <div class="col-2">
