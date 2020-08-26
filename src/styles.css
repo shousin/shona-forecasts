@@ -65,7 +65,7 @@ h3 {
   position: fixed;
   height: 150%;
   z-index: -999;
-  top: 0;
+  top: -50px;
   left: 0;
 }
 #country {
@@ -153,6 +153,6 @@ h3 {
   #background-video {
     height: 100%;
     top: 0;
-    left: -50;
+    left: -50px;
   }
 }
