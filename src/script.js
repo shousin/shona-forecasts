@@ -116,7 +116,7 @@ function search(event) {
     apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
     axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
   } else {
-    cityShown.innerHTML = "Please enter a city...";
+    cityShown.innerHTML = "Please enter a city...<br>";
   }
 }
 
@@ -136,8 +136,9 @@ function localsearch(eventLocal) {
 
 //the following code changes the data and formating of the page to match the weather icon in the chosen city
 function showTemperature(response) {
+  console.log(response.data);
   let icon = response.data.weather[0].icon;
-
+  let country = response.data.sys.country;
   let temperature = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description;
   let humidity = response.data.main.humidity;
@@ -150,7 +151,7 @@ function showTemperature(response) {
       return letter.toUpperCase();
     });
   city = response.data.name;
-  cityShown.innerHTML = city;
+  cityShown.innerHTML = `${city} <small id = "country"> (${country}) </small>`;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   temperatureElement.innerHTML = `${temperature}`;
   descriptionElement.innerHTML = `${description}`;
@@ -194,7 +195,7 @@ function showTemperature(response) {
     bkgrdColor1 = "6a85b6";
     //broken clouds day !
   } else if (icon === "04d") {
-    bkgrdColor1 = "a18cd1";
+    bkgrdColor1 = "a1b8cd1";
     //broken clouds night ! - bit grainy
   } else if (icon === "04n") {
     sigColor = "ffffff";

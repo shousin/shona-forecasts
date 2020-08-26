@@ -68,6 +68,9 @@ h3 {
   top: 0;
   left: 0;
 }
+#country {
+  font-size: x-small;
+}
 #local-city-btn {
   padding: 0 31px 0;
 }
