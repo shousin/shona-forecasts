@@ -37,14 +37,14 @@ h3 {
 .all-current-info-left {
   margin: 20px 0px;
 }
-.current-day-and-time {
+.last-updated {
   padding-bottom: 10px;
 }
 .symbol {
   color: #167bca;
   height: 30px;
 }
-.symbol-and-degrees {
+.all-current-info-right {
   text-align: center;
   padding: 0px 30px 30px;
   position: relative;
